@@ -40,6 +40,7 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
+    {% comment %}
     <!-- News -->
     {% if page.news and site.announcements.enabled %}
       <h2>
@@ -55,6 +56,7 @@ layout: default
       </h2>
       {% include latest_posts.liquid %}
     {% endif %}
+    {% endcomment %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
