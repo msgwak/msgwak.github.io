@@ -23,7 +23,7 @@ honors: true
 I am a 4th year Ph.D. student in Electrical Engineering at Pohang University of Science and Technology (POSTECH), advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works).
 My research focuses on advancing sequence modeling through `system theory` and `deep state space models (SSMs)`.
 
-I am interested in applications requiring classification or prediction on `time-series data` such as vibration, temperature, and voltage. 
+I am interested in applications involving the classification or prediction of `time-series data` such as vibration, temperature, and voltage. 
 Additionally, I focus on modeling tasks for very long sequences, including `(byte-level) language` and `DNA sequence`, aiming to perform these tasks in a stable and efficient manner.
 SSMs provide a scalable and practical tool for such tasks, which motivates my research on developing `novel fundamental SSMs` and `generalizing Mamba`, leveraging insights from system theory.
 
