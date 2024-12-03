@@ -20,7 +20,7 @@ education: true # includes a list of education items
 honors: true
 ---
 
-I am a 4th year Ph.D. student in Electrical Engineering at [Pohang University of Science and Technology (POSTECH)](https://www.postech.ac.kr/eng/), advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works).
+I am a 4th year Ph.D. student in Electrical Engineering at [Pohang University of Science and Technology (POSTECH)](https://www.postech.ac.kr/eng), advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works).
 My research focuses on advancing sequence modeling through `system theory` and `deep state space models (SSMs)`.
 
 I completed my B.S. and M.S. in Electrical Engineering at POSTECH under the supervision of [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works).
