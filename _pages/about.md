@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-   <div style="white-space: nowrap">🎵 🎸 🍝 🔤 🏊 🐱</div>
+   <div style="text-align: center;">🎵🎸🍝🔤🏊🐱</div>
   #  <p>:musical_note: :guitar: :spaghetti: :capital_abcd: :swimmer: :cat:</p>
   #  <p>123 your address street</p>
   #  <p>Your City, State 12345</p>
