@@ -20,8 +20,8 @@ social: true # includes social icons at the bottom of the page
 honors: true
 ---
 
-I am a postdoctoral researcher at [Lawrence Berkeley National Laboratory](https://www.lbl.gov) and [International Computer Science Institute](https://icsi.berkeley.edu), working with [Dr. Benjamin N. Erichson](https://www.benerichson.com). My research interests include `spatiotemporal modeling`, `generative models` and `AI for science`, with a focus on the intersection of `signals and systems`, `control theory` and `deep learning`. 
+I am a postdoctoral researcher at Lawrence Berkeley National Laboratory and International Computer Science Institute, working with [Dr. Benjamin N. Erichson](https://www.benerichson.com). My research interests include `spatiotemporal modeling`, `generative models`, and `AI for science`, with a focus on the intersection of signals and systems, control theory, and deep learning. 
 
-I received my Ph.D., M.S., and B.S. in Electrical Engineering from [Pohang University of Science and Technology](https://www.postech.ac.kr/eng/index.do), where I was advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works). My doctoral research focused on integrating deep state space models with linear system theory.
+I received my Ph.D., M.S., and B.S. in Electrical Engineering from Pohang University of Science and Technology, where I was advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works). My doctoral research focused on integrating deep state space models with linear system theory.
 
 📨 Always happy to connect.  *mgwak [at] lbl.gov*
