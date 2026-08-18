@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='https://spac.postech.ac.kr'>Signal Processing and Control Lab (SPaC)</a> minseon25@postech.ac.kr
+# subtitle: 
 
 profile:
   align: right
@@ -20,6 +20,6 @@ social: true # includes social icons at the bottom of the page
 honors: true
 ---
 
-My name is Minseon Gwak and I am a [BK21 postdoctoral fellow](https://www.postech.ac.kr/eng/research/bk21.do) at [Pohang University of Science and Technology (POSTECH)](https://www.postech.ac.kr/eng/index.do). I work on `deep state space models` and `efficient long sequence modeling`, with a focus on the intersection of `control theory` and `deep learning`. 
+I am a postdoctoral researcher at [Lawrence Berkeley National Laboratory](https://www.lbl.gov) and [International Computer Science Institute](https://icsi.berkeley.edu), working with [Dr. Benjamin N. Erichson](https://www.benerichson.com). My research interests include `spatiotemporal modeling`, `generative models` and `AI for science`, with a focus on the intersection of `control theory` and `deep learning`. 
 
-I earned my Ph.D. in deep seqeunce modeling with linear system theory from the Department of Electrical Engineering at [POSTECH](https://www.postech.ac.kr/eng/index.do), under the supervision of [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works). My work has been published in leading conferences and journals, including a main conference paper at [NeurIPS 2024](https://neurips.cc/Conferences/2024), and a regular paper in [IEEE TII](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=9424). I was honored with the Best Research of the Year Award in my department in both 2023 and 2024. During my Ph.D., I spent 6 months as a visiting scholar at [Carnegie Mellon University](https://www.cmu.edu/?gad_source=1&gclid=CjwKCAjw47i_BhBTEiwAaJfPpv9xxP4XJhp-kzag7Oh7QGOfD6n9r61aXLVZD-XGMm5tLtzEp0IGMhoCjZAQAvD_BwE). Prior to starting my Ph.D., I received the Best Graduation Capstone Project Award in 2018.
+I received my Ph.D., M.S., and B.S. in Electrical Engineering from [Pohang University of Science and Technology](https://www.postech.ac.kr/eng/index.do), where I was advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works). My doctoral research focused on integrating deep state space models with linear system theory.

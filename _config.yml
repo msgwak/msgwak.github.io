@@ -6,14 +6,11 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Minseon
 middle_name: 
 last_name: Gwak
-email: minseon25@postech.ac.kr
+email: mgwak@lbl.gov
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: deep state space model, ssm, deep learning, sequence modeling # add your own keywords or leave empty
+# footer_text: >
+keywords: deep state space model, ssm, deep learning, sequence modeling, spatiotemporal modeling, world models, AI4Science, physical AI, generative AI # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -50,7 +47,7 @@ rss_icon: false
 navbar_fixed: true
 footer_fixed: true
 search_enabled: false
-cv_enabled: true
+cv_enabled: false
 socials_in_search: true
 bib_search: true
 
