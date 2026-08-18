@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-# subtitle: 
+subtitle: /minsʌn/
 
 profile:
   align: right
