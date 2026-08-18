@@ -20,6 +20,12 @@ social: true # includes social icons at the bottom of the page
 honors: true
 ---
 
+<style>
+.about .profile img {
+  border-radius: 2rem; /* larger radius for more rounded corners */
+}
+</style>
+
 I am a postdoctoral researcher at Lawrence Berkeley National Laboratory and International Computer Science Institute, working with [Dr. Benjamin N. Erichson](https://www.benerichson.com). My research interests include generative AI, world models, and AI for science, integrating deep learning with system and control theories. 
 
 I received my Ph.D., M.S., and B.S. in Electrical Engineering from Pohang University of Science and Technology, where I was advised by [Prof. PooGyeon Park](https://scholar.google.co.kr/citations?hl=ko&user=ktTQiqsAAAAJ&view_op=list_works). My doctoral research focused on optimizing deep state space models for efficient sequence modeling.
