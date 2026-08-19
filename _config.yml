@@ -196,6 +196,11 @@ collections:
   projects:
     output: true
     permalink: /:collection/:title/
+  honors:
+    defaults:
+      layout: post
+    output: true
+    permalink: /honors/:path/
 
 announcements:
   enabled: false
