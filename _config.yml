@@ -199,8 +199,7 @@ collections:
   honors:
     defaults:
       layout: post
-    output: true
-    permalink: /honors/:path/
+    output: false
 
 announcements:
   enabled: false
