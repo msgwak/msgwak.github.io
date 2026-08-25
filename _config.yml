@@ -200,6 +200,10 @@ collections:
     defaults:
       layout: post
     output: false
+  services:
+    defaults:
+      layout: post
+    output: false
 
 announcements:
   enabled: false

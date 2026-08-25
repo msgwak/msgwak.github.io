@@ -18,6 +18,7 @@ news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 honors: true
+services: true
 ---
 
 I am a postdoctoral researcher at Lawrence Berkeley National Laboratory (LBNL) and International Computer Science Institute (ICSI), working with [Dr. Benjamin N. Erichson](https://www.benerichson.com). My research bridges deep learning with system and control theories, focusing on Generative AI, World Models, and AI for Science.
