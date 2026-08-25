@@ -56,11 +56,11 @@ table.table a {
   }
 }
 
-.honors ul,
-.services ul {
+.post article .honors ul,
+.post article .services ul {
   list-style-position: inside;
-  margin-bottom: 0;
-  padding-left: 0;
+  margin: 0;
+  padding-left: 0 !important;
 }
 
 blockquote {
