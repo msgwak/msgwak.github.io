@@ -63,6 +63,12 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+    <!-- Honors -->
+    {% if page.honors %}
+      <h2>Honors</h2>
+      {% include honors.liquid %}
+    {% endif %}
+
     <!-- Social -->
     {% if page.social %}
       <div class="social">
