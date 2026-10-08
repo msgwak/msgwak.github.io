@@ -6,7 +6,7 @@ body { line-height: 1.5; font-size: .97rem; }
 #overview .container.is-max-desktop,
 #scientific-results .container.is-max-desktop,
 #image-results .container.is-max-desktop,
-#citation .container.is-max-desktop { max-width: 1000px; }
+#citation .container.is-max-desktop { max-width: 960px; }
 .project-nav { max-width: 1120px; margin: auto; padding: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: .97rem; }
 .project-nav a { color: var(--text-secondary); }
 .project-nav div { display: flex; gap: 1.5rem; }
