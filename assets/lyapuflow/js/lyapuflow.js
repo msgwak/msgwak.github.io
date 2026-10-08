@@ -25,7 +25,7 @@
   if (imageTrigger && imageLightbox) {
     var lightboxImage = imageLightbox.querySelector('img');
     var closingLightbox = false;
-    var lightboxDuration = 460;
+    var lightboxDuration = 610;
     function imageRect(element) {
       var rect = element.getBoundingClientRect();
       return { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
@@ -56,7 +56,8 @@
       setLightboxImageRect(originRect);
       imageLightbox.showModal();
       var aspect = lightboxImage.naturalWidth / lightboxImage.naturalHeight;
-      var targetWidth = Math.min(window.innerWidth * .9, window.innerHeight * .82 * aspect);
+      var pageWidth = document.querySelector('.publication-header .container.is-max-desktop').getBoundingClientRect().width;
+      var targetWidth = Math.min(pageWidth, window.innerWidth * .9, window.innerHeight * .82 * aspect);
       var targetHeight = targetWidth / aspect;
       var targetRect = {
         left: (window.innerWidth - targetWidth) / 2,
