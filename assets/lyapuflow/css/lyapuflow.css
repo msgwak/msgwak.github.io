@@ -47,7 +47,7 @@ body { line-height: 1.5; font-size: 1rem; }
 #abstract { padding-top: 1.25rem; padding-bottom: 1.5rem; }
 .overview-copy { margin: 1.25rem auto 1.5rem; font-size: 1rem; line-height: 1.55; }
 .abstract-copy { margin: 1.75rem auto 0; font-size: 1rem; line-height: 1.55; }
-.method-figure { width: 72%; margin: .75rem auto 0; }
+.method-figure { width: 72%; margin: .45rem auto 0; }
 .method-figure img { display: block; width: 100%; height: auto; }
 .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .method-steps article { border-top: 2px solid #c5dbd7; padding-top: .7rem; }
@@ -62,8 +62,8 @@ a { color: var(--primary-color); }
 .result-item p { max-width: 900px; }
 .result-figure { width: 90%; margin: 1.5rem auto 0; }
 .result-figure img { display: block; max-width: 100%; width: 100%; height: auto; margin-inline: auto; object-fit: contain; }
-.ns-animation-figure { width: 90%; overflow-x: auto; }
-.ns-animation-figure img { width: 100%; }
+.ns-animation-figure { width: 100%; min-width: 0; overflow: hidden; }
+.ns-animation-figure img { display: block; width: 100%; max-width: 100%; height: auto; }
 .citation-heading { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .5rem; margin-bottom: .25rem; }
 .citation-heading > .title { grid-column: 2; grid-row: 1; justify-self: center; }
 .citation-heading .title { margin: 0; }
@@ -71,7 +71,8 @@ a { color: var(--primary-color); }
 .citation-actions .button { gap: .55rem; }
 .citation-actions .back-to-top { margin-top: 0; }
 .citation-heading .button svg { display: inline-block; width: 18px; height: 18px; flex: none; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-#citation pre { margin: 0 0 .5rem; padding: .65rem .8rem; font-size: .8rem; line-height: 1.35; }
+#citation pre { min-width: 0; max-width: 100%; margin: 0 0 .5rem; padding: .65rem .8rem; font-size: .8rem; line-height: 1.35; }
+#citation pre code { display: block; min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 pre { white-space: pre; overflow-x: auto; font-size: .85rem; }
 #copy-status { min-height: 0; margin: 0; font-size: .9rem; color: var(--primary-color); }
 .footer { padding: 2.5rem 1.5rem; font-size: .82rem; }
@@ -84,7 +85,6 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 @media (max-width: 600px) {
   #overview { padding-top: 2.5rem; }
   .method-figure { width: 100%; }
-  .ns-animation-figure img { width: 948px; max-width: none; }
   .project-nav { font-size: 1rem; padding: 1rem; }
   .project-nav div { gap: .8rem; }
   .publication-header .hero-body { padding-top: 2.5rem; }
