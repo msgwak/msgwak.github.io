@@ -101,15 +101,15 @@ category: work
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
           <p class="result-intro">We study scientific inverse problems by generating PDE solutions under hard physical constraints for 1D heat, Burgers, and reaction–diffusion (RD) equations, as well as 2D Navier–Stokes (NS) systems. The constraints include initial conditions, local dynamics, and conservation laws. For a fair comparison under hard constraints, we apply the same number of final projection steps to every sampler after generation.</p>
           <article class="result-item">
-            <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> The top panel shows average solutions for a fixed initial-condition group, and the bottom panel shows pointwise absolute error to ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
+            <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> In the following 1D Burgers examples, the top panel shows average solutions for a fixed initial-condition group, and the bottom panel shows pointwise absolute error to ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <p><strong>2D Navier–Stokes evolution.</strong> Mean fields for condition index 5 evolve from t = 0 to 49. Reading left to right and top to bottom, the panels follow the same sampler order as the Burgers comparison.</p>
+            <p>The following 2D NS examples show average solution under constraints on initial vorticity and conservation of total vorticity.</p>
             <figure class="research-figure result-figure ns-animation-figure">
-              <img src="{{ '/assets/lyapuflow/images/ns-index5.gif' | relative_url }}" alt="Looping comparison of ground truth, LyapuFlow, DPS, SAD-Flower, FlowDPS, ProFlow, PCFM, OC-Flow, and FFM with final projection for Navier–Stokes condition index 5, from time 0 through 49." width="672" height="813" loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/ns-index5-6.gif' | relative_url }}" alt="Looping comparison of initial vorticity, ground truth, and LyapuFlow for Navier–Stokes condition indices 5 and 6 over physical time τ, from index 0 through 49, with one shared vertical color scale." width="1848" height="340" loading="lazy">
             </figure>
           </article>
           <article class="result-item">
@@ -124,7 +124,7 @@ category: work
         <div class="container is-max-desktop">
           <p class="eyebrow has-text-centered">Results · Latent space</p>
           <h2 class="title is-3 has-text-centered">Image inverse problems</h2>
-          <p class="result-intro">We study image inverse problems in the established image latent space of pretrained flow-matching models such as Stable Diffusion 3.5 Medium. A degraded image from the AFHQ, FFHQ, or DIV2K datasets defines a measurement constraint that guides generation toward a clean reconstruction. While including the velocity Jacobian can empirically better preserve high-frequency components, it also increases sensitivity and computational cost. We therefore use a gradient-switch step to regulate its use, keeping guidance decoder-Jacobian-only for early steps of the sampling trajectory or throughout the entire trajectory.</p>
+          <p class="result-intro">We study image inverse problems in the established image latent space of pretrained flow-matching models such as Stable Diffusion 3.5 Medium. A degraded image from the AFHQ, FFHQ, or DIV2K datasets defines a measurement constraint that guides generation toward a clean reconstruction. While including the velocity Jacobian can empirically better preserve high-frequency components, it also increases sensitivity and computational cost. We therefore use a gradient-switch step to regulate its use, keeping guidance decoder-Jacobian-only for early steps of the sampling trajectory or throughout the entire trajectory. As LyapuFlow uses one feedback update per sampling step without iterative inner or outer optimization, our primary baselines are FlowChef and FlowDPS, whose default configurations also avoid iteration-heavy sampling.</p>
           <article class="result-item">
             <p><strong>Reconstruction of instance-specific image details.</strong> In the following 4× super-resolution and motion-deblurring examples, LyapuFlow avoids hallucinated antennae on the butterfly and better preserves high-frequency components in the cat reconstruction.</p>
             <figure class="research-figure result-figure">
