@@ -13,14 +13,17 @@ Bulma is MIT licensed: https://github.com/jgthms/bulma/blob/master/LICENSE
 The adapted page retains visible template and Nerfies attribution.
 Custom page styling and markup adaptations use the same CC BY-SA 4.0 license.
 
-Research figures (separate from the website template license) are from
-https://arxiv.org/html/2610.04326v1:
-- `images/tasks.png`: Figure 1 (`task.png`)
-- `images/burgers.png`: Figure 3 (`x1.png`)
-- `images/image-results.png`: Figure 4 (`image_fig1.png`)
-- `images/sensitivity-dps.svg`: Figure 5 (`hyperparameter_sensitivity_2samplers.svg`)
-- `images/sensitivity-all.svg`: Figure 7 (`hyperparameter_sensitivity_7samplers.svg`)
-- `images/appendix-heat.png`: Appendix Figure 8 (`x2.png`)
-- `images/appendix-navier-stokes.png`: Appendix Figure 12 (`x12.png`)
+Research figures (separate from the website template license) were copied from
+`/Users/mgwak/Downloads/arXiv-2610.04326v1/figs` into `figs/`.
+The `images/` PNGs are display versions rendered at 3× resolution from the
+corresponding local PDFs. Clicking a figure opens the original PDF.
+
+- `images/tasks.png` ← `figs/task.pdf` (Figure 1)
+- `images/burgers.png` ← `figs/PDE/burgers1d_ic_average.pdf` (Figure 3)
+- `images/image-results.png` ← `figs/Image/image_fig1.pdf` (Figure 4)
+- `images/sensitivity-dps.png` ← `figs/PDE/hyperparameter_sensitivity_2samplers.pdf` (Figure 5)
+- `images/sensitivity-all.png` ← `figs/PDE/hyperparameter_sensitivity_7samplers.pdf` (Figure 7)
+- `images/appendix-heat.png` ← `figs/PDE/heat_average.pdf` (Appendix Figure 8)
+- `images/appendix-navier-stokes.png` ← `figs/PDE/ns_average.pdf` (Appendix Figure 12)
 
 Update the HTML to add future code, video, or supplementary links when available.
