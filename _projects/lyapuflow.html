@@ -19,8 +19,13 @@ category: work
     <meta property="og:title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
     <meta property="og:description" content="Test-time control for pretrained generative flows, from physical constraints to image reconstruction.">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/assets/lyapuflow/images/image-results.png' | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | absolute_url }}">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="384">
+    <meta property="og:image:alt" content="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | absolute_url }}">
+    <meta name="twitter:image:alt" content="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
     <meta name="citation_title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
     <meta name="citation_author" content="Gwak, Minseon">
     <meta name="citation_author" content="Hsu, Hans Hao-Hsun">
@@ -44,7 +49,9 @@ category: work
             <div class="publication-hero-layout">
               <div class="publication-hero-top">
                 <h1 class="title is-1 publication-title"><span class="project-name">LyapuFlow:</span><span class="paper-title">Controlling Generative Flows with<br class="desktop-break"> Lyapunov Feedback for Inverse Problems</span></h1>
-                <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high">
+                <button type="button" class="publication-image-trigger" aria-label="View enlarged LyapuFlow illustration">
+                  <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high">
+                </button>
               </div>
               <div class="publication-hero-details">
                 <div class="is-size-5 publication-authors">
@@ -57,7 +64,7 @@ category: work
                 <div class="publication-links">
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6zM14 3.75v4h4M9 12h6M9 15.5h6"/></svg>Paper</a></span>
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></svg>arXiv</a></span>
-                  <span class="link-block"><a class="button is-dark is-rounded" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 3.5 12 8 19M16 5l4.5 7-4.5 7M14 4l-4 16"/></svg>BibTeX</a></span>
+                  <span class="link-block"><button type="button" class="button is-dark is-rounded" id="scroll-to-citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 3.5 12 8 19M16 5l4.5 7-4.5 7M14 4l-4 16"/></svg>BibTeX</button></span>
                 </div>
               </div>
             </div>
@@ -76,7 +83,7 @@ category: work
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Method overview</h2>
           <div class="overview-copy content">
-            <p>LyapuFlow adds inference-time feedback control to a pretrained flow model. It evaluates constraint violations on a predicted terminal sample and uses a Lyapunov decrease condition to guide generation toward lower violations while preserving the learned flow dynamics. When the uncontrolled flow already reduces violations at the prescribed rate, control stays inactive; otherwise, a minimum-norm correction within a trust region steers the sample without overwhelming the pretrained dynamics. No retraining is required.</p>
+            <p>LyapuFlow adds inference-time feedback control to a pretrained flow model. It evaluates constraint violations on a predicted terminal sample and uses a Lyapunov decrease condition to guide generation toward lower violations while preserving the learned flow dynamics. When the uncontrolled flow already reduces violations at the prescribed rate, control stays inactive; otherwise, a minimum-norm correction within a trust region steers the sample without overwhelming the pretrained dynamics. For latent flow-matching models composed of a latent-space velocity model and a decoder, the contribution of the latent-space velocity model to the final control can be adjusted across sampling steps. No retraining is required.</p>
           </div>
           <div class="method-steps">
             <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate from the current state to its predicted terminal sample using the pretrained flow.</p></article>
@@ -97,6 +104,12 @@ category: work
             <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> The top panel shows average solutions for a fixed initial-condition group, and the bottom panel shows pointwise absolute error to ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
+            </figure>
+          </article>
+          <article class="result-item">
+            <p><strong>2D Navier–Stokes evolution.</strong> Mean fields for condition index 5 evolve from t = 0 to 49. Reading left to right and top to bottom, the panels follow the same sampler order as the Burgers comparison.</p>
+            <figure class="research-figure result-figure ns-animation-figure">
+              <img src="{{ '/assets/lyapuflow/images/ns-index5.gif' | relative_url }}" alt="Looping comparison of ground truth, LyapuFlow, DPS, SAD-Flower, FlowDPS, ProFlow, PCFM, OC-Flow, and FFM with final projection for Navier–Stokes condition index 5, from time 0 through 49." width="672" height="813" loading="lazy">
             </figure>
           </article>
           <article class="result-item">
@@ -128,7 +141,7 @@ category: work
       </section>
       <section class="section hero is-light" id="citation">
         <div class="container is-max-desktop">
-          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><div class="citation-actions"><button type="button" class="button is-dark" id="copy-citation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"/></svg>Copy citation</button><a class="button is-rounded back-to-top" href="#main-content" aria-label="Back to top" title="Back to top">▲</a></div></div>
+          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><div class="citation-actions"><button type="button" class="button is-dark" id="copy-citation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"/></svg>Copy citation</button><button type="button" class="button is-rounded back-to-top" aria-label="Back to top" title="Back to top">▲</button></div></div>
           <pre><code id="bibtex">@article{gwak2026lyapuflow,
   title={LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems},
   author={Gwak, Minseon and Hsu, Hans Hao-Hsun and Maddix, Danielle C. and Erichson, N. Benjamin},
@@ -139,6 +152,10 @@ category: work
         </div>
       </section>
     </main>
+    <dialog class="image-lightbox" id="icon-lightbox" aria-label="Enlarged LyapuFlow illustration">
+      <button type="button" class="image-lightbox-close" aria-label="Close enlarged image">×</button>
+      <img src="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
+    </dialog>
     <footer class="footer">
       <div class="container is-max-desktop has-text-centered">
         <p>Adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.</p>
