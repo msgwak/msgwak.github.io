@@ -42,8 +42,11 @@ category: work
         <div class="hero-body">
           <div class="container is-max-desktop">
             <div class="publication-hero-layout">
-              <div class="publication-hero-copy">
+              <div class="publication-hero-top">
                 <h1 class="title is-1 publication-title"><span class="project-name">LyapuFlow:</span><span class="paper-title">Controlling Generative Flows with<br class="desktop-break"> Lyapunov Feedback for Inverse Problems</span></h1>
+                <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high">
+              </div>
+              <div class="publication-hero-details">
                 <div class="is-size-5 publication-authors">
                   <span class="author-block"><a href="{{ '/' | relative_url }}">Minseon Gwak</a><sup>1,4</sup>,</span>
                   <span class="author-block"><a href="https://hans66hsu.github.io/" target="_blank" rel="noopener noreferrer">Hans Hao-Hsun Hsu</a><sup>2</sup>,</span>
@@ -52,12 +55,11 @@ category: work
                 </div>
                 <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology<br><sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
                 <div class="publication-links">
-                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326">Paper</a></span>
-                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326">arXiv</a></span>
-                  <span class="link-block"><a class="button is-dark is-rounded" href="#citation">BibTeX</a></span>
+                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6zM14 3.75v4h4M9 12h6M9 15.5h6"/></svg>Paper</a></span>
+                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></svg>arXiv</a></span>
+                  <span class="link-block"><a class="button is-dark is-rounded" href="#citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 3.5 12 8 19M16 5l4.5 7-4.5 7M14 4l-4 16"/></svg>BibTeX</a></span>
                 </div>
               </div>
-              <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high">
             </div>
           </div>
         </div>
@@ -76,10 +78,13 @@ category: work
           <div class="overview-copy content">
             <p>LyapuFlow adds inference-time feedback to a pretrained flow model. It evaluates constraints on a predicted final sample, then chooses a minimum-norm correction using a Lyapunov decrease condition. A trust region limits the correction relative to the learned flow. No retraining is required.</p>
           </div>
+          <figure class="method-figure">
+            <iframe src="{{ '/assets/lyapuflow/figs/method.pdf' | relative_url }}" title="LyapuFlow method overview" loading="lazy"></iframe>
+          </figure>
           <div class="method-steps">
-            <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate the pretrained flow from the current state to its predicted terminal sample.</p><div class="step-equation" aria-label="Predicted terminal sample equals current state plus remaining time times pretrained velocity">x̂₁ = xₜ + (1 − t)v<sub>θ</sub>(xₜ, t)</div></article>
-            <article><span class="step-number">02</span><h3>Evaluate Lyapunov function V</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p><div class="step-equation" aria-label="Lyapunov function is one half the squared norm of the constraint residual">V(x̂₁) = ½‖c(x̂₁) − y‖₂²</div></article>
-            <article><span class="step-number">03</span><h3>Control within a trust region</h3><p>Apply minimum-norm feedback when needed, bounded relative to the pretrained flow.</p><div class="step-equation" aria-label="Choose the minimum norm control satisfying the Lyapunov decrease condition and a trust region bound">u* = arg min<sub>u</sub> ½‖u‖₂²<br>subject to V̇ ≤ −κV, ‖u‖₂ ≤ ρ‖v<sub>θ</sub>‖₂</div></article>
+            <article><span class="step-number">01</span><h3><span class="step-label">Predict</span> terminal sample</h3><p>Extrapolate the pretrained flow from the current state to its predicted terminal sample.</p></article>
+            <article><span class="step-number">02</span><h3><span class="step-label">Evaluate</span> Lyapunov function V</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p></article>
+            <article><span class="step-number">03</span><h3><span class="step-label">Control</span> within a trust region</h3><p>Apply minimum-norm feedback when needed, bounded relative to the pretrained flow.</p></article>
           </div>
         </div>
       </section>
@@ -144,6 +149,7 @@ category: work
       <div class="container is-max-desktop has-text-centered">
         <p>Adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.</p>
         <p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Research figures belong to the paper’s authors.</p>
+        <a class="back-to-top" href="#main-content">↑ Back to top</a>
       </div>
     </footer>
   </body>

@@ -11,49 +11,56 @@ body { line-height: 1.5; font-size: .97rem; }
 .project-nav a { color: var(--text-secondary); }
 .project-nav div { display: flex; gap: 1.5rem; }
 .publication-header .hero-body { padding: 3.5rem 1.5rem 2rem; }
-.publication-hero-layout { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .9fr); align-items: center; gap: 2.5rem; }
-.publication-hero-copy { min-width: 0; }
-.publication-hero-image { display: block; width: 100%; max-width: 400px; height: auto; margin-inline: auto; }
+.publication-hero-layout { display: block; }
+.publication-hero-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 320px); align-items: center; gap: 2rem; }
+.publication-hero-top .publication-title { margin-bottom: 0; }
+.publication-hero-image { display: block; width: 100%; max-width: 320px; height: auto; margin-inline: auto; transition: transform .25s ease; }
+.publication-hero-image:hover { transform: scale(1.04); }
 .eyebrow { color: var(--primary-color); font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.25rem; }
-.project-name, .paper-title { display: block; font-size: 2.35rem; line-height: 1.22; letter-spacing: -.035em; }
+.project-name, .paper-title { display: block; font-size: 2.2rem; line-height: 1.22; letter-spacing: -.035em; }
 .project-name { color: var(--primary-color); }
-.publication-authors { margin-bottom: .8rem; font-size: 1rem !important; }
+.publication-authors { margin-bottom: .8rem; font-size: .95rem !important; }
+.publication-hero-details { width: 100%; margin-top: 1.25rem; }
 .affiliations { color: #647174; line-height: 1.5; font-size: .97rem; }
 .publication-links { margin-top: 1rem; }
 .publication-links .button { gap: .65rem; }
+.publication-links .button svg { width: 1.05em; height: 1.05em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .research-figure { margin: 1.5rem 0 0; }
 .research-figure img { display: block; width: 100%; height: auto; }
 .section { padding: 4rem 1.5rem; scroll-margin-top: 1rem; }
-.section h2.title.is-3 { font-size: 1.7rem; }
+.section#citation { padding-block: 2rem; }
+.section h2.title.is-3 { font-size: 1.7rem; margin-bottom: 1rem; }
 #abstract { padding-top: 1.25rem; }
 .overview-copy { margin: 1.75rem auto 2.5rem; font-size: .97rem; line-height: 1.55; }
 .abstract-copy { margin: 1.75rem auto 0; font-size: .97rem; line-height: 1.55; }
+.method-figure { margin: 1.5rem auto 2rem; }
+.method-figure iframe { display: block; width: 100%; height: clamp(180px, 31vw, 320px); border: 0; background: #fff; }
 .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .method-steps article { border-top: 2px solid #c5dbd7; padding-top: 1rem; }
 .step-number { color: var(--primary-color); font-size: .8rem; font-weight: 700; }
 .method-steps h3 { font-size: 1.25rem; font-weight: 700; margin: .5rem 0; }
+.step-label { color: var(--primary-color); }
 .method-steps p, .result-intro, .result-item p { color: #59696c; font-size: .97rem; line-height: 1.5; }
-.step-equation { margin-top: .9rem; padding: .65rem .75rem; border-radius: 4px; background: rgba(23, 107, 112, .08); color: var(--text-primary); font-family: Cambria, "Times New Roman", serif; font-size: .95rem; line-height: 1.7; overflow-wrap: anywhere; }
 a { color: var(--primary-color); }
-.result-intro { text-align: center; margin: 0 auto 2.5rem; }
-.result-item { margin-top: 3rem; }
-.result-item + .result-item { padding-top: 3rem; border-top: 1px solid var(--border-color); }
+.result-intro { text-align: center; margin: 0 auto 1.75rem; }
+.result-item { margin-top: 2rem; }
+.result-item + .result-item { padding-top: 1.5rem; border-top: 1px solid var(--border-color); }
 .result-item .title.is-4 { margin-bottom: .75rem; }
 .result-item p { max-width: 900px; }
 .result-figure { margin-top: 1.5rem; }
 .result-figure img { max-width: 100%; width: auto; max-height: 650px; margin-inline: auto; object-fit: contain; }
-.citation-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.citation-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .75rem; }
 .citation-heading .title { margin: 0; }
 pre { white-space: pre; overflow-x: auto; font-size: .85rem; }
 #copy-status { min-height: 1.5rem; font-size: .9rem; color: var(--primary-color); }
 .footer { padding: 2.5rem 1.5rem; font-size: .82rem; }
 .footer p + p { margin-top: .5rem; }
+.back-to-top { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.25rem; padding: .55rem .9rem; border-radius: 999px; background: var(--primary-color); color: #fff; font-size: .9rem; font-weight: 600; transition: background-color .2s ease, transform .2s ease; }
+.back-to-top:hover, .back-to-top:focus-visible { background: var(--primary-hover); color: #fff; transform: translateY(-2px); }
 .skip-link { position: absolute; top: -100px; left: 1rem; z-index: 10; padding: .75rem; background: white; }
 .skip-link:focus { top: 1rem; }
 button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; }
 @media (max-width: 600px) {
-  .publication-hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
-  .publication-hero-image { max-width: 360px; }
   .project-nav { font-size: .97rem; padding: 1rem; }
   .project-nav div { gap: .8rem; }
   .publication-header .hero-body { padding-top: 2.5rem; }
@@ -63,8 +70,12 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
   .method-steps { grid-template-columns: 1fr; gap: 1.5rem; }
   .section { padding: 3rem 1.25rem; }
   .section h2.title.is-3 { font-size: 1.5rem; }
-  .publication-authors { font-size: .97rem !important; }
+  .publication-authors { font-size: .95rem !important; }
   .affiliations { font-size: .97rem; }
+}
+@media (max-width: 1100px) {
+  .publication-hero-top { grid-template-columns: 1fr; gap: 1.5rem; }
+  .publication-hero-image { max-width: 360px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
