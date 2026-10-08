@@ -16,9 +16,8 @@ Custom page styling and markup adaptations use the same CC BY-SA 4.0 license.
 Research figures (separate from the website template license) were copied from
 `/Users/mgwak/Downloads/arXiv-2610.04326v1/figs` into `figs/`.
 The `images/` PNGs are display versions rendered at 3× resolution from the
-corresponding local PDFs. Clicking a figure opens the original PDF.
+corresponding local PDFs. The figures on the page are display-only images.
 
-- `images/tasks.png` ← `figs/task.pdf` (Figure 1)
 - `images/burgers.png` ← `figs/PDE/burgers1d_ic_average.pdf` (Figure 3)
 - `images/image-results.png` ← `figs/Image/image_fig1.pdf` (Figure 4)
 - `images/sensitivity-dps.png` ← `figs/PDE/hyperparameter_sensitivity_2samplers.pdf` (Figure 5)

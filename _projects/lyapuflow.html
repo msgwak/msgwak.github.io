@@ -3,7 +3,7 @@ layout: null
 title: LyapuFlow
 description: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems
 permalink: /LyapuFlow/
-img: assets/lyapuflow/images/tasks.png
+img: assets/lyapuflow/images/image-results.png
 importance: 1
 category: work
 ---
@@ -19,7 +19,7 @@ category: work
     <meta property="og:title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
     <meta property="og:description" content="Test-time control for pretrained generative flows, from physical constraints to image reconstruction.">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    <meta property="og:image" content="{{ '/assets/lyapuflow/images/tasks.png' | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/lyapuflow/images/image-results.png' | absolute_url }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="citation_title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
     <meta name="citation_author" content="Gwak, Minseon">
@@ -49,7 +49,7 @@ category: work
               <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup>,</span>
               <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
             </div>
-            <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab<br><sup>2</sup> Georgia Institute of Technology<br><sup>3</sup> Siemens<br><sup>4</sup> International Computer Science Institute</p>
+            <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology · <sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
             <p class="publication-venue">arXiv · October 2026</p>
             <div class="publication-links">
               <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326">Paper</a></span>
@@ -59,16 +59,17 @@ category: work
           </div>
         </div>
       </section>
-      <section class="hero teaser" aria-label="Research at a glance">
+      <section class="section" id="abstract">
         <div class="container is-max-desktop">
-          <figure class="research-figure">
-            <a href="{{ '/assets/lyapuflow/figs/task.pdf' | relative_url }}" aria-label="Open the task overview PDF"><img src="{{ '/assets/lyapuflow/images/tasks.png' | relative_url }}" alt="Scientific and image inverse problems: PDE generation with physical constraints, image super-resolution, and deblurring." fetchpriority="high"></a>
-          </figure>
+          <h2 class="title is-3 has-text-centered">Abstract</h2>
+          <div class="abstract-copy content">
+            <p>Pretrained flow models provide powerful generative priors for scientific and image inverse problems, but their samples must also satisfy constraints supplied at inference time. LyapuFlow guides generation with Lyapunov feedback: at each sampling step, it predicts the terminal sample, measures its constraint violation, and computes the smallest correction needed to meet a prescribed decrease condition. The controller stays inactive when the original flow already makes sufficient progress, and a trust region keeps corrections from overwhelming the pretrained dynamics. Experiments in data and latent spaces show improved sample fidelity with competitive constraint satisfaction, without retraining the generative model.</p>
+          </div>
         </div>
       </section>
       <section class="section hero is-light" id="overview">
         <div class="container is-max-desktop">
-          <p class="eyebrow has-text-centered">The idea</p>
+          <p class="eyebrow has-text-centered">Method Overview</p>
           <h2 class="title is-3 has-text-centered">Guide the flow. Preserve the prior.</h2>
           <div class="overview-copy content">
             <p>LyapuFlow adds inference-time feedback to a pretrained flow model. It evaluates constraints on a predicted final sample, then chooses a minimum-norm correction using a Lyapunov decrease condition. A trust region limits the correction relative to the learned flow. No retraining is required.</p>
@@ -78,67 +79,56 @@ category: work
             <article><span class="step-number">02</span><h3>Evaluate</h3><p>Measure the predicted sample’s constraint violation.</p></article>
             <article><span class="step-number">03</span><h3>Control</h3><p>Apply bounded feedback only when the nominal dynamics need correction.</p></article>
           </div>
-          <p class="has-text-centered source-link"><a href="https://arxiv.org/html/2610.04326v1#S3">Explore the method in the paper →</a></p>
         </div>
       </section>
-      <section class="section" id="results">
+      <section class="section" id="scientific-results">
         <div class="container is-max-desktop">
-          <p class="eyebrow has-text-centered">Across data and latent spaces</p>
-          <h2 class="title is-3 has-text-centered">Scientific and image inverse problems</h2>
-          <article class="result-block">
-            <h3 class="title is-4">Physics-constrained generation</h3>
-            <p>Data-space experiments cover heat, Burgers, reaction–diffusion, and Navier–Stokes equations.</p>
-            <figure class="research-figure">
-              <a href="{{ '/assets/lyapuflow/figs/PDE/burgers1d_ic_average.pdf' | relative_url }}" aria-label="Open Burgers results PDF"><img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy"></a>
-              <figcaption>Burgers solutions and their errors under initial-condition, observation, and conservation constraints. Figure 3 from the paper.</figcaption>
-            </figure>
-          </article>
-          <article class="result-block">
-            <h3 class="title is-4">Image reconstruction</h3>
-            <p>Latent-space experiments study super-resolution and deblurring.</p>
-            <figure class="research-figure">
-              <a href="{{ '/assets/lyapuflow/figs/Image/image_fig1.pdf' | relative_url }}" aria-label="Open image reconstruction results PDF"><img src="{{ '/assets/lyapuflow/images/image-results.png' | relative_url }}" alt="Image reconstruction comparisons showing observations, baseline reconstructions, LyapuFlow, and ground truth with detail crops." loading="lazy"></a>
-              <figcaption>Qualitative reconstruction comparisons with enlarged details. Figure 4 from the paper.</figcaption>
-            </figure>
-          </article>
-          <p class="has-text-centered source-link"><a href="https://arxiv.org/html/2610.04326v1#S4">See experimental settings and quantitative results →</a></p>
-          <div class="appendix-results">
-            <p class="eyebrow has-text-centered">Sensitivity and appendix visualizations</p>
-            <h3 class="title is-4 has-text-centered">Robustness across guidance settings and scientific tasks</h3>
-            <p class="appendix-intro">The paper studies how the guidance strength and base sampling step affect task performance, and includes additional qualitative comparisons for PDE generation.</p>
-            <div class="appendix-grid">
-              <figure class="research-figure appendix-figure">
-                <a href="{{ '/assets/lyapuflow/figs/PDE/hyperparameter_sensitivity_2samplers.pdf' | relative_url }}" aria-label="Open LyapuFlow and DPS sensitivity PDF"><img src="{{ '/assets/lyapuflow/images/sensitivity-dps.png' | relative_url }}" alt="Task adaptability comparison of DPS across base step sizes and LyapuFlow across Lyapunov decay rates." loading="lazy"></a>
-                <figcaption>LyapuFlow and DPS task adaptability. Paper Figure 5.</figcaption>
-              </figure>
-              <figure class="research-figure appendix-figure">
-                <a href="{{ '/assets/lyapuflow/figs/PDE/hyperparameter_sensitivity_7samplers.pdf' | relative_url }}" aria-label="Open all-sampler hyperparameter sensitivity PDF"><img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy"></a>
-                <figcaption>Guidance hyperparameter sensitivity across PDE samplers. Paper Figure 7.</figcaption>
-              </figure>
-              <figure class="research-figure appendix-figure">
-                <a href="{{ '/assets/lyapuflow/figs/PDE/heat_average.pdf' | relative_url }}" aria-label="Open appendix heat equation visualization PDF"><img src="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" alt="Qualitative comparison of generated one-dimensional heat solutions under initial-condition and conservation-law constraints." loading="lazy"></a>
-                <figcaption>Additional 1D Heat comparison from Appendix B.7 (Figure 8).</figcaption>
-              </figure>
-              <figure class="research-figure appendix-figure">
-                <a href="{{ '/assets/lyapuflow/figs/PDE/ns_average.pdf' | relative_url }}" aria-label="Open appendix Navier–Stokes visualization PDF"><img src="{{ '/assets/lyapuflow/images/appendix-navier-stokes.png' | relative_url }}" alt="Qualitative comparison of generated two-dimensional Navier–Stokes flows under initial-vorticity and total-vorticity constraints." loading="lazy"></a>
-                <figcaption>Additional 2D Navier–Stokes comparison from Appendix B.7 (Figure 12).</figcaption>
-              </figure>
-            </div>
-            <p class="has-text-centered source-link"><a href="https://arxiv.org/html/2610.04326v1#A2.SS6">Read the sensitivity analysis and complete appendix →</a></p>
-          </div>
+          <p class="eyebrow has-text-centered">Results · Data space</p>
+          <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
+          <p class="result-intro">LyapuFlow guides generation under physical constraints across heat, Burgers, reaction–diffusion, and Navier–Stokes equations.</p>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
+            <figcaption>Burgers solutions and their errors under initial-condition, observation, and conservation constraints. Figure 3 from the paper.</figcaption>
+          </figure>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" alt="Qualitative comparison of generated one-dimensional heat solutions under initial-condition and conservation-law constraints." loading="lazy">
+            <figcaption>Additional 1D Heat comparison from Appendix B.7 (Figure 8).</figcaption>
+          </figure>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/appendix-navier-stokes.png' | relative_url }}" alt="Qualitative comparison of generated two-dimensional Navier–Stokes flows under initial-vorticity and total-vorticity constraints." loading="lazy">
+            <figcaption>Additional 2D Navier–Stokes comparison from Appendix B.7 (Figure 12).</figcaption>
+          </figure>
+          <h3 class="title is-4 result-subheading">Guidance sensitivity</h3>
+          <p class="result-detail">The paper compares LyapuFlow and DPS across guidance settings and evaluates hyperparameter sensitivity across PDE samplers.</p>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/sensitivity-dps.png' | relative_url }}" alt="Task adaptability comparison of DPS across base step sizes and LyapuFlow across Lyapunov decay rates." loading="lazy">
+            <figcaption>LyapuFlow and DPS task adaptability. Paper Figure 5.</figcaption>
+          </figure>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
+            <figcaption>Guidance hyperparameter sensitivity across PDE samplers. Paper Figure 7.</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="section hero is-light" id="image-results">
+        <div class="container is-max-desktop">
+          <p class="eyebrow has-text-centered">Results · Latent space</p>
+          <h2 class="title is-3 has-text-centered">Image inverse problems</h2>
+          <p class="result-intro">Latent-space experiments study super-resolution and deblurring while keeping reconstructions consistent with the measurements.</p>
+          <figure class="research-figure result-figure">
+            <img src="{{ '/assets/lyapuflow/images/image-results.png' | relative_url }}" alt="Image reconstruction comparisons showing observations, baseline reconstructions, LyapuFlow, and ground truth with detail crops." loading="lazy">
+            <figcaption>Qualitative reconstruction comparisons with enlarged details. Figure 4 from the paper.</figcaption>
+          </figure>
         </div>
       </section>
       <section class="section hero is-light" id="citation">
         <div class="container is-max-desktop">
           <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><button type="button" class="button is-dark" id="copy-citation" hidden>Copy citation</button></div>
-          <pre><code id="bibtex">@misc{gwak2026lyapuflow,
+          <pre><code id="bibtex">@article{lyapuflow,
   title={LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems},
-  author={Minseon Gwak and Hans Hao-Hsun Hsu and Danielle C. Maddix and N. Benjamin Erichson},
-  year={2026},
-  eprint={2610.04326},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG},
-  url={https://arxiv.org/abs/2610.04326}
+  author={Gwak, Minseon and Hsu, Hans Hao-Hsun and Maddix, Danielle C. and Erichson, N. Benjamin},
+  journal={arXiv preprint arXiv:2610.04326},
+  year={2026}
 }</code></pre>
           <p id="copy-status" role="status" aria-live="polite"></p>
         </div>
