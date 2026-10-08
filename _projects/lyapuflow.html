@@ -94,13 +94,13 @@ category: work
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
           <p class="result-intro">LyapuFlow guides PDE solution generation for 1D heat, Burgers, and reaction–diffusion (RD) equations and 2D Navier–Stokes (NS), enforcing linear and nonlinear constraints such as initial conditions, local dynamics, and conservation laws.</p>
           <article class="result-item">
-            <p><strong>Guidance sensitivity.</strong> Unlike other samplers, which require task-specific tuning of the guidance step size, LyapuFlow can adapt relatively easily across tasks and models by adjusting its Lyapunov decay rate.</p>
+            <p><strong>Task adaptability through decay-rate tuning.</strong> Unlike other samplers, which require task-specific tuning of the guidance step size, LyapuFlow can adapt relatively easily across tasks and models by adjusting its Lyapunov decay rate.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <p><strong>1D Burgers.</strong> The top panel shows average solutions for a fixed initial-condition group, and the bottom panel shows pointwise absolute error to ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
+            <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> The top panel shows average solutions for a fixed initial-condition group, and the bottom panel shows pointwise absolute error to ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
             </figure>
