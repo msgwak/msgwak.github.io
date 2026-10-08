@@ -1,13 +1,13 @@
 :root { --primary-color: #176b70; --primary-hover: #104d51; --text-primary: #223438; --background-secondary: #f4f8f7; }
 body, .publication-title, .publication-authors { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important; }
-body { line-height: 1.5; }
+body { line-height: 1.5; font-size: .97rem; }
 .container.is-max-desktop { max-width: 1120px; }
 #abstract .container.is-max-desktop,
 #overview .container.is-max-desktop,
 #scientific-results .container.is-max-desktop,
 #image-results .container.is-max-desktop,
-#citation .container.is-max-desktop { max-width: 1040px; }
-.project-nav { max-width: 1120px; margin: auto; padding: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: .9rem; }
+#citation .container.is-max-desktop { max-width: 1000px; }
+.project-nav { max-width: 1120px; margin: auto; padding: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: .97rem; }
 .project-nav a { color: var(--text-secondary); }
 .project-nav div { display: flex; gap: 1.5rem; }
 .publication-header .hero-body { padding: 3.5rem 1.5rem 2rem; }
@@ -15,7 +15,7 @@ body { line-height: 1.5; }
 .project-name, .paper-title { display: block; font-size: 2.35rem; line-height: 1.22; letter-spacing: -.035em; }
 .project-name { color: var(--primary-color); }
 .publication-authors { margin-bottom: .8rem; }
-.affiliations { color: #647174; line-height: 1.5; font-size: .95rem; }
+.affiliations { color: #647174; line-height: 1.5; font-size: .97rem; }
 .publication-links { margin-top: 1rem; }
 .publication-links .button { gap: .65rem; }
 .research-figure { margin: 1.5rem 0 0; }
@@ -23,13 +23,13 @@ body { line-height: 1.5; }
 .section { padding: 4rem 1.5rem; scroll-margin-top: 1rem; }
 .section h2.title.is-3 { font-size: 1.7rem; }
 #abstract { padding-top: 1.25rem; }
-.overview-copy { margin: 1.75rem auto 2.5rem; font-size: 1.08rem; line-height: 1.6; }
-.abstract-copy { margin: 1.75rem auto 0; font-size: 1.08rem; line-height: 1.6; }
+.overview-copy { margin: 1.75rem auto 2.5rem; font-size: .97rem; line-height: 1.55; }
+.abstract-copy { margin: 1.75rem auto 0; font-size: .97rem; line-height: 1.55; }
 .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .method-steps article { border-top: 2px solid #c5dbd7; padding-top: 1rem; }
 .step-number { color: var(--primary-color); font-size: .8rem; font-weight: 700; }
 .method-steps h3 { font-size: 1.25rem; font-weight: 700; margin: .5rem 0; }
-.method-steps p, .result-intro, .result-item p { color: #59696c; line-height: 1.5; }
+.method-steps p, .result-intro, .result-item p { color: #59696c; font-size: .97rem; line-height: 1.5; }
 a { color: var(--primary-color); }
 .result-intro { text-align: center; margin: 0 auto 2.5rem; }
 .result-item { margin-top: 3rem; }
@@ -48,7 +48,7 @@ pre { white-space: pre; overflow-x: auto; font-size: .85rem; }
 .skip-link:focus { top: 1rem; }
 button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; }
 @media (max-width: 600px) {
-  .project-nav { font-size: .8rem; padding: 1rem; }
+  .project-nav { font-size: .97rem; padding: 1rem; }
   .project-nav div { gap: .8rem; }
   .publication-header .hero-body { padding-top: 2.5rem; }
   .project-name, .paper-title { font-size: 1.8rem; }
@@ -57,8 +57,8 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
   .method-steps { grid-template-columns: 1fr; gap: 1.5rem; }
   .section { padding: 3rem 1.25rem; }
   .section h2.title.is-3 { font-size: 1.5rem; }
-  .publication-authors { font-size: 1.05rem !important; }
-  .affiliations { font-size: .85rem; }
+  .publication-authors { font-size: .97rem !important; }
+  .affiliations { font-size: .97rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

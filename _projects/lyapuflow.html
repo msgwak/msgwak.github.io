@@ -61,7 +61,7 @@ category: work
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Abstract</h2>
           <div class="abstract-copy content">
-            <p>Pretrained flow models provide powerful generative priors for scientific and image inverse problems, but their samples must also satisfy constraints supplied at inference time. LyapuFlow guides generation with Lyapunov feedback: at each sampling step, it predicts the terminal sample, measures its constraint violation, and computes the smallest correction needed to meet a prescribed decrease condition. The controller stays inactive when the original flow already makes sufficient progress, and a trust region keeps corrections from overwhelming the pretrained dynamics. Experiments in data and latent spaces show improved sample fidelity with competitive constraint satisfaction, without retraining the generative model.</p>
+            <p>Pretrained flow models are now widely used as generative priors in science and vision, where inference-time guidance enables test-time constraints without retraining. Existing methods use projection, posterior sampling, or iterative optimization of the generative trajectory. We propose LyapuFlow, an alternative based on Lyapunov feedback control. At each sampling step, LyapuFlow predicts the terminal sample towards which the current flow is evolving, and evaluates the constraint violation on this prediction. Then, we compute the minimum-norm control that satisfies a prescribed Lyapunov decrease condition. The resulting control remains inactive when the uncontrolled dynamics already reduce the constraint violation at the prescribed rate. Otherwise, it provides a corrective update within a feedback trust region that prevents the control from dominating the pretrained dynamics. We demonstrate LyapuFlow in both data and latent spaces, outperforming alternatives spanning different mechanisms for test-time constraint enforcement in scientific machine learning and image inverse problems.</p>
           </div>
         </div>
       </section>
@@ -84,22 +84,19 @@ category: work
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
           <p class="result-intro">LyapuFlow guides generation under physical constraints across heat, Burgers, and reaction–diffusion equations.</p>
           <article class="result-item">
-            <h3 class="title is-4">1D Heat</h3>
-            <p>Under initial-condition and conservation-law constraints, the heat-equation examples compare generated fields and their absolute errors across guidance methods.</p>
+            <p><strong>1D Heat.</strong> Under initial-condition and conservation-law constraints, the heat-equation examples compare generated fields and their absolute errors across guidance methods.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" alt="Qualitative comparison of generated one-dimensional heat solutions under initial-condition and conservation-law constraints." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <h3 class="title is-4">1D Burgers</h3>
-            <p>The Burgers examples show average generated solutions and pointwise absolute error under initial-condition, local-dynamics, and conservation constraints.</p>
+            <p><strong>1D Burgers.</strong> The examples show average generated solutions and pointwise absolute error under initial-condition, local-dynamics, and conservation constraints.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <h3 class="title is-4">Guidance sensitivity</h3>
-            <p>The comparison shows how seven PDE samplers respond to their main guidance hyperparameters.</p>
+            <p><strong>Guidance sensitivity.</strong> The comparison shows how seven PDE samplers respond to their main guidance hyperparameters.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
             </figure>
@@ -112,15 +109,13 @@ category: work
           <h2 class="title is-3 has-text-centered">Image inverse problems</h2>
           <p class="result-intro">Latent-space experiments study super-resolution and deblurring while keeping reconstructions consistent with the measurements.</p>
           <article class="result-item">
-            <h3 class="title is-4">Reconstruction fidelity</h3>
-            <p>Super-resolution and motion-deblurring examples compare the measurement, competing reconstructions, LyapuFlow, and ground truth. Enlarged regions make fine-detail differences easier to see.</p>
+            <p><strong>Reconstruction fidelity.</strong> Super-resolution and motion-deblurring examples compare the measurement, competing reconstructions, LyapuFlow, and ground truth. Enlarged regions make fine-detail differences easier to see.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/image-results.png' | relative_url }}" alt="Image reconstruction comparisons showing observations, baseline reconstructions, LyapuFlow, and ground truth with detail crops." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <h3 class="title is-4">Sampling budget</h3>
-            <p>Gaussian deblurring reconstructions compare FlowDPS and LyapuFlow at 28 and 40 function evaluations, showing how the restored details change with the sampling budget.</p>
+            <p><strong>Sampling budget.</strong> Gaussian deblurring reconstructions compare FlowDPS and LyapuFlow at 28 and 40 function evaluations, showing how the restored details change with the sampling budget.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/image-nfe.png' | relative_url }}" alt="Gaussian deblurring comparison of FlowDPS and LyapuFlow with 28 and 40 function evaluations, alongside measurements and ground truth." loading="lazy">
             </figure>

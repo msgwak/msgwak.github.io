@@ -1,4 +1,18 @@
 (function () {
+  var navigation = performance.getEntriesByType('navigation')[0];
+  if (navigation && navigation.type === 'reload') {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.addEventListener('pageshow', function () {
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      requestAnimationFrame(function () {
+        window.scrollTo(0, 0);
+        document.documentElement.style.scrollBehavior = '';
+        if ('scrollRestoration' in history) history.scrollRestoration = 'auto';
+      });
+    });
+  }
+
   var button = document.getElementById('copy-citation');
   var citation = document.getElementById('bibtex');
   var status = document.getElementById('copy-status');
