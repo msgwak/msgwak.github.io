@@ -37,10 +37,6 @@ category: work
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <nav class="project-nav" aria-label="Project navigation">
-      <a href="{{ '/' | relative_url }}">Minseon Gwak</a>
-      <div><a href="#overview">Overview</a><a href="#results">Results</a><a href="#citation">Citation</a></div>
-    </nav>
     <main id="main-content">
       <section class="hero publication-header">
         <div class="hero-body">
@@ -48,15 +44,15 @@ category: work
             <p class="eyebrow">Generative modeling meets feedback control</p>
             <h1 class="title is-1 publication-title"><span class="project-name">LyapuFlow</span><span class="paper-title">Controlling Generative Flows with<br class="desktop-break"> Lyapunov Feedback for Inverse Problems</span></h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><a href="{{ '/' | relative_url }}">Minseon Gwak</a>,</span>
-              <span class="author-block">Hans Hao-Hsun Hsu,</span>
-              <span class="author-block">Danielle C. Maddix,</span>
-              <span class="author-block">N. Benjamin Erichson</span>
+              <span class="author-block"><a href="{{ '/' | relative_url }}">Minseon Gwak</a><sup>1,4</sup>,</span>
+              <span class="author-block"><a href="https://hans66hsu.github.io/" target="_blank" rel="noopener noreferrer">Hans Hao-Hsun Hsu</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup>,</span>
+              <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
             </div>
-            <p class="affiliations">Lawrence Berkeley National Lab · Georgia Institute of Technology<br>Siemens · International Computer Science Institute</p>
+            <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab<br><sup>2</sup> Georgia Institute of Technology<br><sup>3</sup> Siemens<br><sup>4</sup> International Computer Science Institute</p>
             <p class="publication-venue">arXiv · October 2026</p>
             <div class="publication-links">
-              <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326">Read the paper <span aria-hidden="true">↗</span></a></span>
+              <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326">Paper</a></span>
               <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326">arXiv</a></span>
               <span class="link-block"><a class="button is-dark is-rounded" href="#citation">BibTeX</a></span>
             </div>
@@ -67,7 +63,6 @@ category: work
         <div class="container is-max-desktop">
           <figure class="research-figure">
             <a href="{{ '/assets/lyapuflow/images/tasks.png' | relative_url }}" aria-label="View the task overview at full size"><img src="{{ '/assets/lyapuflow/images/tasks.png' | relative_url }}" alt="Scientific and image inverse problems: PDE generation with physical constraints, image super-resolution, and deblurring." fetchpriority="high"></a>
-            <figcaption>One feedback framework for physical constraints and image measurements.</figcaption>
           </figure>
         </div>
       </section>
@@ -107,6 +102,30 @@ category: work
             </figure>
           </article>
           <p class="has-text-centered source-link"><a href="https://arxiv.org/html/2610.04326v1#S4">See experimental settings and quantitative results →</a></p>
+          <div class="appendix-results">
+            <p class="eyebrow has-text-centered">Sensitivity and appendix visualizations</p>
+            <h3 class="title is-4 has-text-centered">Robustness across guidance settings and scientific tasks</h3>
+            <p class="appendix-intro">The paper studies how the guidance strength and base sampling step affect task performance, and includes additional qualitative comparisons for PDE generation.</p>
+            <div class="appendix-grid">
+              <figure class="research-figure appendix-figure">
+                <a href="{{ '/assets/lyapuflow/images/sensitivity-dps.svg' | relative_url }}" aria-label="Open LyapuFlow and DPS sensitivity figure"><img src="{{ '/assets/lyapuflow/images/sensitivity-dps.svg' | relative_url }}" alt="Task adaptability comparison of DPS across base step sizes and LyapuFlow across Lyapunov decay rates." loading="lazy"></a>
+                <figcaption>LyapuFlow and DPS task adaptability. Paper Figure 5.</figcaption>
+              </figure>
+              <figure class="research-figure appendix-figure">
+                <a href="{{ '/assets/lyapuflow/images/sensitivity-all.svg' | relative_url }}" aria-label="Open all-sampler hyperparameter sensitivity figure"><img src="{{ '/assets/lyapuflow/images/sensitivity-all.svg' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy"></a>
+                <figcaption>Guidance hyperparameter sensitivity across PDE samplers. Paper Figure 7.</figcaption>
+              </figure>
+              <figure class="research-figure appendix-figure">
+                <a href="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" aria-label="Open appendix heat equation visualization"><img src="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" alt="Qualitative comparison of generated one-dimensional heat solutions under initial-condition and conservation-law constraints." loading="lazy"></a>
+                <figcaption>Additional 1D Heat comparison from Appendix B.7 (Figure 8).</figcaption>
+              </figure>
+              <figure class="research-figure appendix-figure">
+                <a href="{{ '/assets/lyapuflow/images/appendix-navier-stokes.png' | relative_url }}" aria-label="Open appendix Navier–Stokes visualization"><img src="{{ '/assets/lyapuflow/images/appendix-navier-stokes.png' | relative_url }}" alt="Qualitative comparison of generated two-dimensional Navier–Stokes flows under initial-vorticity and total-vorticity constraints." loading="lazy"></a>
+                <figcaption>Additional 2D Navier–Stokes comparison from Appendix B.7 (Figure 12).</figcaption>
+              </figure>
+            </div>
+            <p class="has-text-centered source-link"><a href="https://arxiv.org/html/2610.04326v1#A2.SS6">Read the sensitivity analysis and complete appendix →</a></p>
+          </div>
         </div>
       </section>
       <section class="section hero is-light" id="citation">
