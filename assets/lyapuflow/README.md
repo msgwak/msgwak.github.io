@@ -20,9 +20,9 @@ corresponding local PDFs. The figures on the page are display-only images.
 
 - `images/burgers.png` ← `figs/PDE/burgers1d_ic_average.pdf` (Figure 3)
 - `images/image-results.png` ← `figs/Image/image_fig1.pdf` (Figure 4)
+- `images/image-nfe.png` ← `figs/Image/image_fig2.pdf` (Figure 6)
 - `images/sensitivity-dps.png` ← `figs/PDE/hyperparameter_sensitivity_2samplers.pdf` (Figure 5)
 - `images/sensitivity-all.png` ← `figs/PDE/hyperparameter_sensitivity_7samplers.pdf` (Figure 7)
 - `images/appendix-heat.png` ← `figs/PDE/heat_average.pdf` (Appendix Figure 8)
-- `images/appendix-navier-stokes.png` ← `figs/PDE/ns_average.pdf` (Appendix Figure 12)
 
 Update the HTML to add future code, video, or supplementary links when available.
