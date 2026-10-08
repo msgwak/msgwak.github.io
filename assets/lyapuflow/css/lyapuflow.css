@@ -83,7 +83,7 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 @media (max-width: 600px) {
   #overview { padding-top: 2.5rem; }
   .method-figure { width: 100%; }
-  .ns-animation-figure img { width: 924px; max-width: none; }
+  .ns-animation-figure img { width: 948px; max-width: none; }
   .project-nav { font-size: 1rem; padding: 1rem; }
   .project-nav div { gap: .8rem; }
   .publication-header .hero-body { padding-top: 2.5rem; }
