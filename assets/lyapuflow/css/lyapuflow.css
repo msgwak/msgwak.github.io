@@ -46,7 +46,7 @@ body { line-height: 1.5; font-size: 1rem; }
 #abstract { padding-top: 1.25rem; padding-bottom: 1.5rem; }
 .overview-copy { margin: 1.25rem auto 1.5rem; font-size: 1rem; line-height: 1.55; }
 .abstract-copy { margin: 1.75rem auto 0; font-size: 1rem; line-height: 1.55; }
-.method-figure { width: 68%; margin: .75rem auto 0; }
+.method-figure { width: 72%; margin: .75rem auto 0; }
 .method-figure img { display: block; width: 100%; height: auto; }
 .method-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .method-steps article { border-top: 2px solid #c5dbd7; padding-top: .7rem; }

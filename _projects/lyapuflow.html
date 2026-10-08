@@ -13,17 +13,20 @@ category: work
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LyapuFlow | Lyapunov Feedback for Inverse Problems</title>
-    <meta name="description" content="LyapuFlow steers pretrained generative flows with Lyapunov feedback to solve scientific and image inverse problems without retraining.">
+    <meta name="description" content="LyapuFlow uses Lyapunov feedback to guide pretrained flow-matching models for PDE generation and image inverse problems under physical and measurement constraints.">
+    <meta name="keywords" content="LyapuFlow, Lyapunov feedback control, flow matching, generative flow models, test-time guidance, scientific machine learning, PDE solution generation, physical constraints, inverse problems, image reconstruction, super-resolution, deblurring">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
     <meta property="og:type" content="article">
     <meta property="og:title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
-    <meta property="og:description" content="Test-time control for pretrained generative flows, from physical constraints to image reconstruction.">
+    <meta property="og:description" content="LyapuFlow uses Lyapunov feedback to guide pretrained flow-matching models for PDE generation and image inverse problems under physical and measurement constraints.">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:image" content="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | absolute_url }}">
     <meta property="og:image:width" content="800">
     <meta property="og:image:height" content="384">
     <meta property="og:image:alt" content="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
+    <meta name="twitter:description" content="LyapuFlow uses Lyapunov feedback to guide pretrained flow-matching models for PDE generation and image inverse problems under physical and measurement constraints.">
     <meta name="twitter:image" content="{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | absolute_url }}">
     <meta name="twitter:image:alt" content="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
     <meta name="citation_title" content="LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems">
@@ -33,6 +36,25 @@ category: work
     <meta name="citation_author" content="Erichson, N. Benjamin">
     <meta name="citation_publication_date" content="2026/10/03">
     <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.04326">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems",
+        "url": "{{ page.url | absolute_url }}",
+        "image": "{{ '/assets/lyapuflow/figs/lyapuflow_icon.png' | absolute_url }}",
+        "description": "LyapuFlow uses Lyapunov feedback to guide pretrained flow-matching models for PDE generation and image inverse problems under physical and measurement constraints.",
+        "author": [
+          { "@type": "Person", "name": "Minseon Gwak", "url": "{{ '/' | absolute_url }}" },
+          { "@type": "Person", "name": "Hans Hao-Hsun Hsu", "url": "https://hans66hsu.github.io/" },
+          { "@type": "Person", "name": "Danielle C. Maddix", "url": "https://dcmaddix.github.io/" },
+          { "@type": "Person", "name": "N. Benjamin Erichson", "url": "https://www.benerichson.com/" }
+        ],
+        "datePublished": "2026-10-03",
+        "identifier": "https://arxiv.org/abs/2610.04326",
+        "keywords": ["Lyapunov feedback control", "flow matching", "scientific machine learning", "PDE solution generation", "image inverse problems", "physical constraints"]
+      }
+    </script>
     <meta name="theme-color" content="#176b70">
     <link rel="icon" href="{{ '/assets/lyapuflow/images/favicon.svg' | relative_url }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/bulma.min.css' | relative_url }}">
@@ -124,7 +146,7 @@ category: work
         <div class="container is-max-desktop">
           <p class="eyebrow has-text-centered">Results · Latent space</p>
           <h2 class="title is-3 has-text-centered">Image inverse problems</h2>
-          <p class="result-intro">We study image inverse problems in the established image latent space of pretrained flow-matching models such as Stable Diffusion 3.5 Medium. A degraded image from the AFHQ, FFHQ, or DIV2K datasets defines a measurement constraint that guides generation toward a clean reconstruction. While including the velocity Jacobian can empirically better preserve high-frequency components, it also increases sensitivity and computational cost. We therefore use a gradient-switch step to regulate its use, keeping guidance decoder-Jacobian-only for early steps of the sampling trajectory or throughout the entire trajectory. As LyapuFlow uses one feedback update per sampling step without iterative inner or outer optimization, our primary baselines are FlowChef and FlowDPS, whose default configurations also avoid iteration-heavy sampling.</p>
+          <p class="result-intro">We study image inverse problems in the established image latent space of pretrained flow-matching models such as Stable Diffusion 3.5 Medium. A degraded image from the AFHQ, FFHQ, or DIV2K datasets defines a measurement constraint that guides generation toward a clean reconstruction. While including the velocity Jacobian can empirically better preserve high-frequency components, it also increases sensitivity and computational cost. We therefore use a gradient-switch step to regulate its use, keeping guidance decoder-Jacobian-only for early steps of the sampling trajectory or throughout the entire trajectory. As LyapuFlow uses one feedback update per sampling step without iterative inner or outer optimization, our primary baselines are FlowChef and FlowDPS, whose default configurations also avoid iteration-heavy guidance.</p>
           <article class="result-item">
             <p><strong>Reconstruction of instance-specific image details.</strong> In the following 4× super-resolution and motion-deblurring examples, LyapuFlow avoids hallucinated antennae on the butterfly and better preserves high-frequency components in the cat reconstruction.</p>
             <figure class="research-figure result-figure">
