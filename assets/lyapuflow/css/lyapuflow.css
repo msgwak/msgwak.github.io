@@ -56,7 +56,6 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 .affiliations { margin: 1rem auto 0; }
 .appendix-results { border-top: 1px solid var(--border-color); margin-top: 3.5rem; padding-top: 3rem; }
 .appendix-intro { color: #59696c; max-width: 760px; text-align: center; margin: 0 auto 1rem; }
-.appendix-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: start; }
+.appendix-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; align-items: start; }
 .appendix-figure { min-width: 0; }
-.appendix-figure img { max-height: 460px; object-fit: contain; }
-@media (max-width: 650px) { .appendix-grid { grid-template-columns: 1fr; } }
+.appendix-figure img { max-width: 100%; width: auto; max-height: 650px; object-fit: contain; margin-inline: auto; }
