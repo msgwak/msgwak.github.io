@@ -776,6 +776,19 @@ footer.sticky-bottom {
             border-color: var(--global-theme-color);
           }
         }
+        a.btn.website-button {
+          color: var(--global-bg-color);
+          background-color: var(--global-theme-color);
+          border-color: var(--global-theme-color);
+
+          &:hover,
+          &:focus-visible {
+            color: var(--global-bg-color);
+            background-color: var(--global-hover-color);
+            border-color: var(--global-hover-color);
+            opacity: 0.86;
+          }
+        }
         a.award.btn {
           border-color: var(--global-highlight-color);
         }

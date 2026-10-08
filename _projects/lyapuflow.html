@@ -50,7 +50,7 @@ category: work
                   <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup>,</span>
                   <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
                 </div>
-                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology · <sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
+                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology<br><sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
                 <div class="publication-links">
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326">Paper</a></span>
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326">arXiv</a></span>
@@ -77,9 +77,9 @@ category: work
             <p>LyapuFlow adds inference-time feedback to a pretrained flow model. It evaluates constraints on a predicted final sample, then chooses a minimum-norm correction using a Lyapunov decrease condition. A trust region limits the correction relative to the learned flow. No retraining is required.</p>
           </div>
           <div class="method-steps">
-            <article><span class="step-number">01</span><h3>Predict</h3><p>Estimate the final sample from the current state and pretrained velocity.</p></article>
-            <article><span class="step-number">02</span><h3>Evaluate</h3><p>Measure the predicted sample’s constraint violation.</p></article>
-            <article><span class="step-number">03</span><h3>Control</h3><p>Apply bounded feedback only when the nominal dynamics need correction.</p></article>
+            <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate the pretrained flow from the current state to its predicted terminal sample.</p><div class="step-equation" aria-label="Predicted terminal sample equals current state plus remaining time times pretrained velocity">x̂₁ = xₜ + (1 − t)v<sub>θ</sub>(xₜ, t)</div></article>
+            <article><span class="step-number">02</span><h3>Evaluate Lyapunov function V</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p><div class="step-equation" aria-label="Lyapunov function is one half the squared norm of the constraint residual">V(x̂₁) = ½‖c(x̂₁) − y‖₂²</div></article>
+            <article><span class="step-number">03</span><h3>Control within a trust region</h3><p>Apply minimum-norm feedback when needed, bounded relative to the pretrained flow.</p><div class="step-equation" aria-label="Choose the minimum norm control satisfying the Lyapunov decrease condition and a trust region bound">u* = arg min<sub>u</sub> ½‖u‖₂²<br>subject to V̇ ≤ −κV, ‖u‖₂ ≤ ρ‖v<sub>θ</sub>‖₂</div></article>
           </div>
         </div>
       </section>
@@ -88,6 +88,12 @@ category: work
           <p class="eyebrow has-text-centered">Results · Data space</p>
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
           <p class="result-intro">LyapuFlow guides generation under physical constraints in 1D heat and Burgers equations and 2D reaction–diffusion and Navier–Stokes (NS) systems.</p>
+          <article class="result-item">
+            <p><strong>Guidance sensitivity.</strong> The comparison shows how seven PDE samplers respond to their main guidance hyperparameters.</p>
+            <figure class="research-figure result-figure">
+              <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
+            </figure>
+          </article>
           <article class="result-item">
             <p><strong>1D Heat.</strong> Under initial-condition and conservation-law constraints, the heat-equation examples compare generated fields and their absolute errors across guidance methods.</p>
             <figure class="research-figure result-figure">
@@ -98,12 +104,6 @@ category: work
             <p><strong>1D Burgers.</strong> The examples show average generated solutions and pointwise absolute error under initial-condition, local-dynamics, and conservation constraints.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
-            </figure>
-          </article>
-          <article class="result-item">
-            <p><strong>Guidance sensitivity.</strong> The comparison shows how seven PDE samplers respond to their main guidance hyperparameters.</p>
-            <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
             </figure>
           </article>
         </div>

@@ -17,7 +17,7 @@ body { line-height: 1.5; font-size: .97rem; }
 .eyebrow { color: var(--primary-color); font-weight: 700; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1.25rem; }
 .project-name, .paper-title { display: block; font-size: 2.35rem; line-height: 1.22; letter-spacing: -.035em; }
 .project-name { color: var(--primary-color); }
-.publication-authors { margin-bottom: .8rem; }
+.publication-authors { margin-bottom: .8rem; font-size: 1rem !important; }
 .affiliations { color: #647174; line-height: 1.5; font-size: .97rem; }
 .publication-links { margin-top: 1rem; }
 .publication-links .button { gap: .65rem; }
@@ -33,6 +33,7 @@ body { line-height: 1.5; font-size: .97rem; }
 .step-number { color: var(--primary-color); font-size: .8rem; font-weight: 700; }
 .method-steps h3 { font-size: 1.25rem; font-weight: 700; margin: .5rem 0; }
 .method-steps p, .result-intro, .result-item p { color: #59696c; font-size: .97rem; line-height: 1.5; }
+.step-equation { margin-top: .9rem; padding: .65rem .75rem; border-radius: 4px; background: rgba(23, 107, 112, .08); color: var(--text-primary); font-family: Cambria, "Times New Roman", serif; font-size: .95rem; line-height: 1.7; overflow-wrap: anywhere; }
 a { color: var(--primary-color); }
 .result-intro { text-align: center; margin: 0 auto 2.5rem; }
 .result-item { margin-top: 3rem; }
