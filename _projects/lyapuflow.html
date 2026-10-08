@@ -79,12 +79,12 @@ category: work
             <p>LyapuFlow adds inference-time feedback to a pretrained flow model. It evaluates constraints on a predicted final sample, then chooses a minimum-norm correction using a Lyapunov decrease condition. A trust region limits the correction relative to the learned flow. No retraining is required.</p>
           </div>
           <div class="method-steps">
-            <article><span class="step-number">01</span><h3><span class="step-label">Predict</span> terminal sample</h3><p>Extrapolate the pretrained flow from the current state to its predicted terminal sample.</p></article>
-            <article><span class="step-number">02</span><h3><span class="step-label">Evaluate</span> Lyapunov function V</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p></article>
-            <article><span class="step-number">03</span><h3><span class="step-label">Control</span> within a trust region</h3><p>Apply minimum-norm feedback when needed, bounded relative to the pretrained flow.</p></article>
+            <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate from the current state to its predicted terminal sample using the pretrained flow.</p></article>
+            <article><span class="step-number">02</span><h3>Evaluate Lyapunov function</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p></article>
+            <article><span class="step-number">03</span><h3>Control within a trust region</h3><p>Apply minimum-norm feedback when needed (active control), bounded relative to the pretrained flow.</p></article>
           </div>
           <figure class="method-figure">
-            <iframe src="{{ '/assets/lyapuflow/figs/method.pdf' | relative_url }}" title="LyapuFlow method overview" loading="lazy"></iframe>
+            <img src="{{ '/assets/lyapuflow/images/method.png' | relative_url }}" alt="Method diagram showing inactive feedback when the Lyapunov decay condition is met, and bounded feedback within a trust region when it is violated." loading="lazy">
           </figure>
         </div>
       </section>
@@ -128,7 +128,7 @@ category: work
       </section>
       <section class="section hero is-light" id="citation">
         <div class="container is-max-desktop">
-          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><button type="button" class="button is-dark" id="copy-citation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"/></svg>Copy citation</button></div>
+          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><div class="citation-actions"><button type="button" class="button is-dark" id="copy-citation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"/></svg>Copy citation</button><a class="button is-rounded back-to-top" href="#main-content">↑ Back to top</a></div></div>
           <pre><code id="bibtex">@article{gwak2026lyapuflow,
   title={LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems},
   author={Gwak, Minseon and Hsu, Hans Hao-Hsun and Maddix, Danielle C. and Erichson, N. Benjamin},
@@ -136,7 +136,6 @@ category: work
   year={2026}
 }</code></pre>
           <p id="copy-status" role="status" aria-live="polite"></p>
-          <div class="citation-footer"><a class="button is-rounded back-to-top" href="#main-content">↑ Back to top</a></div>
         </div>
       </section>
     </main>
