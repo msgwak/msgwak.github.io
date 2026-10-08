@@ -53,7 +53,7 @@ category: work
                   <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup>,</span>
                   <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
                 </div>
-                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology<br><sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
+                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology · <sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
                 <div class="publication-links">
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6zM14 3.75v4h4M9 12h6M9 15.5h6"/></svg>Paper</a></span>
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></svg>arXiv</a></span>
@@ -64,7 +64,7 @@ category: work
           </div>
         </div>
       </section>
-      <section class="section" id="abstract">
+      <section class="section hero is-light" id="abstract">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Abstract</h2>
           <div class="abstract-copy content">
@@ -72,41 +72,35 @@ category: work
           </div>
         </div>
       </section>
-      <section class="section hero is-light" id="overview">
+      <section class="section" id="overview">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Method Overview</h2>
           <div class="overview-copy content">
             <p>LyapuFlow adds inference-time feedback to a pretrained flow model. It evaluates constraints on a predicted final sample, then chooses a minimum-norm correction using a Lyapunov decrease condition. A trust region limits the correction relative to the learned flow. No retraining is required.</p>
           </div>
-          <figure class="method-figure">
-            <iframe src="{{ '/assets/lyapuflow/figs/method.pdf' | relative_url }}" title="LyapuFlow method overview" loading="lazy"></iframe>
-          </figure>
           <div class="method-steps">
             <article><span class="step-number">01</span><h3><span class="step-label">Predict</span> terminal sample</h3><p>Extrapolate the pretrained flow from the current state to its predicted terminal sample.</p></article>
             <article><span class="step-number">02</span><h3><span class="step-label">Evaluate</span> Lyapunov function V</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p></article>
             <article><span class="step-number">03</span><h3><span class="step-label">Control</span> within a trust region</h3><p>Apply minimum-norm feedback when needed, bounded relative to the pretrained flow.</p></article>
           </div>
+          <figure class="method-figure">
+            <iframe src="{{ '/assets/lyapuflow/figs/method.pdf' | relative_url }}" title="LyapuFlow method overview" loading="lazy"></iframe>
+          </figure>
         </div>
       </section>
       <section class="section" id="scientific-results">
         <div class="container is-max-desktop">
           <p class="eyebrow has-text-centered">Results · Data space</p>
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
-          <p class="result-intro">LyapuFlow guides generation under physical constraints in 1D heat and Burgers equations and 2D reaction–diffusion and Navier–Stokes (NS) systems.</p>
+          <p class="result-intro">LyapuFlow guides generation under physical constraints in 1D heat and Burgers equations and 2D reaction–diffusion (RD) and Navier–Stokes (NS) systems.</p>
           <article class="result-item">
-            <p><strong>Guidance sensitivity.</strong> The comparison shows how seven PDE samplers respond to their main guidance hyperparameters.</p>
+            <p><strong>Guidance sensitivity.</strong> Unlike other samplers, which require task-specific tuning of the guidance step size, LyapuFlow can adapt relatively easily across tasks and models by adjusting its Lyapunov decay rate.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
             </figure>
           </article>
           <article class="result-item">
-            <p><strong>1D Heat.</strong> Under initial-condition and conservation-law constraints, the heat-equation examples compare generated fields and their absolute errors across guidance methods.</p>
-            <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/appendix-heat.png' | relative_url }}" alt="Qualitative comparison of generated one-dimensional heat solutions under initial-condition and conservation-law constraints." loading="lazy">
-            </figure>
-          </article>
-          <article class="result-item">
-            <p><strong>1D Burgers.</strong> The examples show average generated solutions and pointwise absolute error under initial-condition, local-dynamics, and conservation constraints.</p>
+            <p><strong>1D Burgers.</strong> Average solutions for one fixed initial condition appear above their pointwise ground-truth errors; constraints cover the initial condition, local dynamics for five steps, and conservation.</p>
             <figure class="research-figure result-figure">
               <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
             </figure>
@@ -134,7 +128,7 @@ category: work
       </section>
       <section class="section hero is-light" id="citation">
         <div class="container is-max-desktop">
-          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><button type="button" class="button is-dark" id="copy-citation" hidden>Copy citation</button></div>
+          <div class="citation-heading"><h2 class="title is-3">BibTeX</h2><button type="button" class="button is-dark" id="copy-citation" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v11A1.5 1.5 0 0 0 5.5 18H8"/></svg>Copy citation</button></div>
           <pre><code id="bibtex">@article{gwak2026lyapuflow,
   title={LyapuFlow: Controlling Generative Flows with Lyapunov Feedback for Inverse Problems},
   author={Gwak, Minseon and Hsu, Hans Hao-Hsun and Maddix, Danielle C. and Erichson, N. Benjamin},
@@ -142,6 +136,7 @@ category: work
   year={2026}
 }</code></pre>
           <p id="copy-status" role="status" aria-live="polite"></p>
+          <div class="citation-footer"><a class="button is-rounded back-to-top" href="#main-content">↑ Back to top</a></div>
         </div>
       </section>
     </main>
@@ -149,7 +144,6 @@ category: work
       <div class="container is-max-desktop has-text-centered">
         <p>Adapted from the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a> and <a href="https://nerfies.github.io/">Nerfies</a>.</p>
         <p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Research figures belong to the paper’s authors.</p>
-        <a class="back-to-top" href="#main-content">↑ Back to top</a>
       </div>
     </footer>
   </body>
