@@ -47,8 +47,8 @@ body { line-height: 1.5; font-size: 1rem; }
 .section#citation { padding-block: 1.25rem; }
 .section h2.title.is-3 { font-size: 1.7rem; margin-bottom: 1.6rem !important; }
 #abstract { padding-top: 1.25rem; padding-bottom: 1.5rem; }
-.overview-copy { margin: 1.25rem auto 1.5rem; font-size: 1rem; line-height: 1.55; }
-.abstract-copy { margin: 1.75rem auto 0; font-size: 1rem; line-height: 1.55; }
+.overview-copy { margin: 1.25rem auto 1.5rem; font-size: 1rem; line-height: 1.5; }
+.abstract-copy { margin: 1.75rem auto 0; font-size: 1rem; line-height: 1.5; }
 .method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
 .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
 .method-figure .method-frame.is-current { z-index: 1; opacity: 1; }
