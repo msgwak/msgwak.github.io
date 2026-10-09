@@ -86,6 +86,71 @@
     });
   }
 
+  var methodAnimation = document.querySelector('.method-animation');
+  if (methodAnimation) {
+    var frames = Array.from(methodAnimation.querySelectorAll('.method-frame'));
+    var steps = Array.from(methodAnimation.querySelectorAll('.method-steps article'));
+    var pauseMethod = methodAnimation.querySelector('.method-pause');
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var frameDurations = [1200, 1600, 1600, 900, 900, 1600];
+    var frameSteps = [0, 0, 1, 2, 2, 2];
+    var methodTimer;
+    var methodVisible = false;
+    var methodReady = false;
+    var methodPaused = false;
+    var frameIndex = 0;
+
+    function showMethodFrame(index) {
+      frames.forEach(function (frame, i) {
+        frame.classList.toggle('is-current', i === index);
+        frame.setAttribute('aria-hidden', String(i !== index));
+      });
+      steps.forEach(function (step, i) {
+        step.classList.toggle('is-revealed', i <= frameSteps[index]);
+      });
+    }
+    function advanceMethod() {
+      showMethodFrame(frameIndex);
+      methodTimer = window.setTimeout(function () {
+        frameIndex = (frameIndex + 1) % frames.length;
+        advanceMethod();
+      }, frameDurations[frameIndex]);
+    }
+    function syncMethodPlayback() {
+      window.clearTimeout(methodTimer);
+      if (!methodReady) return;
+      if (reducedMotion.matches) {
+        methodAnimation.classList.remove('is-playing');
+        showMethodFrame(frames.length - 1);
+        pauseMethod.hidden = true;
+        return;
+      }
+      pauseMethod.hidden = false;
+      if (!methodVisible || document.hidden || methodPaused) return;
+      methodAnimation.classList.add('is-playing');
+      advanceMethod();
+    }
+    pauseMethod.addEventListener('click', function () {
+      methodPaused = !methodPaused;
+      pauseMethod.classList.toggle('is-paused', methodPaused);
+      pauseMethod.setAttribute('aria-label', methodPaused ? 'Play animation' : 'Pause animation');
+      syncMethodPlayback();
+    });
+    reducedMotion.addEventListener('change', syncMethodPlayback);
+    document.addEventListener('visibilitychange', syncMethodPlayback);
+    var methodObserver = new IntersectionObserver(function (entries) {
+      methodVisible = entries[0].isIntersecting;
+      syncMethodPlayback();
+    }, { threshold: 0.15 });
+    methodObserver.observe(methodAnimation);
+    Promise.all(frames.map(function (frame) { return frame.decode(); })).then(function () {
+      methodReady = true;
+      syncMethodPlayback();
+    }).catch(function () {
+      // Keep the final diagram and all three descriptions as a static fallback.
+    });
+  }
+
   var navigation = performance.getEntriesByType('navigation')[0];
   if (navigation && navigation.type === 'reload') {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';

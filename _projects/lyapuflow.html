@@ -107,14 +107,22 @@ category: work
           <div class="overview-copy content">
             <p>LyapuFlow adds inference-time feedback control to a pretrained flow model. It evaluates constraint violations on a predicted terminal sample and uses a Lyapunov decrease condition to guide generation toward lower violations while preserving the learned flow dynamics. When the uncontrolled flow already reduces violations at the prescribed rate, control stays inactive; otherwise, a minimum-norm correction within a trust region steers the sample without overwhelming the pretrained dynamics. For latent flow-matching models composed of a latent-space velocity model and a decoder, the contribution of the latent-space velocity model to the final control can be adjusted across sampling steps. No retraining is required.</p>
           </div>
-          <div class="method-steps">
-            <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate from the current state to its predicted terminal sample using the pretrained flow.</p></article>
-            <article><span class="step-number">02</span><h3>Evaluate Lyapunov function</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function V.</p></article>
-            <article><span class="step-number">03</span><h3>Control within trust region</h3><p>Apply minimum-norm feedback when needed (active control), bounded relative to the pretrained flow.</p></article>
+          <div class="method-animation">
+            <div class="method-steps">
+              <article><span class="step-number">01</span><h3>Predict terminal sample</h3><p>Extrapolate from the current state to its predicted terminal sample using the pretrained flow.</p></article>
+              <article><span class="step-number">02</span><h3>Evaluate Lyapunov function</h3><p>Evaluate the constraint violation at the predicted terminal sample using the Lyapunov function.</p></article>
+              <article><span class="step-number">03</span><h3>Control within trust region</h3><p>Apply minimum-norm feedback when needed (active control), bounded relative to the pretrained flow.</p></article>
+            </div>
+            <figure class="method-figure">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-1.png' | relative_url }}" alt="Uncontrolled flow at the current sample." width="1880" height="640" aria-hidden="true">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-2.png' | relative_url }}" alt="Predict the terminal sample along the uncontrolled flow." width="1880" height="640" aria-hidden="true">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-3.png' | relative_url }}" alt="Evaluate whether the predicted sample satisfies the Lyapunov decay condition." width="1880" height="640" aria-hidden="true">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-4.png' | relative_url }}" alt="Keep control inactive or apply raw feedback according to the decay condition." width="1880" height="640" aria-hidden="true">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-5.png' | relative_url }}" alt="Bound the active feedback within a trust region." width="1880" height="640" aria-hidden="true">
+              <img class="method-frame is-current" src="{{ '/assets/lyapuflow/images/method-steps/step-6.png' | relative_url }}" alt="Advance along the controlled flow while preserving the pretrained dynamics." width="1880" height="640">
+              <button type="button" class="method-pause" aria-label="Pause animation" hidden></button>
+            </figure>
           </div>
-          <figure class="method-figure">
-            <img src="{{ '/assets/lyapuflow/images/method.png' | relative_url }}" alt="Method diagram showing inactive feedback when the Lyapunov decay condition is met, and bounded feedback within a trust region when it is violated." loading="lazy">
-          </figure>
         </div>
       </section>
       <section class="section" id="scientific-results">
@@ -122,9 +130,6 @@ category: work
           <p class="eyebrow has-text-centered">Results · Data space</p>
           <h2 class="title is-3 has-text-centered">Scientific inverse problems</h2>
           <p class="result-intro">We study scientific inverse problems by generating PDE solutions under hard physical constraints for 1D heat, Burgers, and reaction–diffusion (RD) equations, as well as 2D Navier–Stokes (NS) systems. These constraints span linear and nonlinear requirements, including initial conditions, local dynamics, and conservation laws. For a fair comparison under hard constraints, we apply the same number of final projection steps to every sampler after generation.</p>
-          <figure class="research-figure result-figure task-figure">
-            <img src="{{ '/assets/lyapuflow/images/task-physics.png' | relative_url }}" alt="Panel (a): LyapuFlow steers generative PDE solution sampling to satisfy physical constraints." loading="lazy">
-          </figure>
           <article class="result-item">
             <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> In these 1D Burgers examples, the top panel shows average solutions for a group with the same initial condition, and the bottom panel shows the pointwise absolute error relative to the ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
             <figure class="research-figure result-figure">
@@ -150,9 +155,6 @@ category: work
           <p class="eyebrow has-text-centered">Results · Latent space</p>
           <h2 class="title is-3 has-text-centered">Image inverse problems</h2>
           <p class="result-intro">We study image inverse problems in the established image latent space of pretrained flow-matching models such as Stable Diffusion 3.5 Medium. A degraded image from the AFHQ, FFHQ, or DIV2K datasets defines a measurement constraint that guides generation toward a clean reconstruction. While including the velocity Jacobian can empirically better preserve high-frequency components, it also increases sensitivity and computational cost. We therefore use a gradient-switch step to regulate its use, keeping guidance decoder-Jacobian-only for early steps of the sampling trajectory or throughout the entire trajectory. As LyapuFlow uses one feedback update per sampling step without iterative inner or outer optimization, our primary baselines are FlowChef and FlowDPS, whose default configurations also avoid iteration-heavy guidance.</p>
-          <figure class="research-figure result-figure task-figure">
-            <img src="{{ '/assets/lyapuflow/images/task-image-inverse.png' | relative_url }}" alt="Panel (b): LyapuFlow guides image inverse problems, including super-resolution and Gaussian or motion deblurring, toward measurement-consistent reconstructions." loading="lazy">
-          </figure>
           <article class="result-item">
             <p><strong>Reconstruction of instance-specific image details.</strong> In the following 4× super-resolution and motion-deblurring examples, LyapuFlow avoids hallucinated antennae on the butterfly and better preserves high-frequency components in the cat reconstruction.</p>
             <figure class="research-figure result-figure">
