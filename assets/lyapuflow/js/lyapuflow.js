@@ -22,8 +22,16 @@
   var imageTrigger = document.querySelector('.publication-image-trigger');
   var imageLightbox = document.getElementById('icon-lightbox');
   var imageLightboxClose = document.querySelector('.image-lightbox-close');
+  var heroVideos = document.querySelectorAll('.publication-hero-image, #icon-lightbox video');
+  heroVideos.forEach(function (video) {
+    video.defaultPlaybackRate = 0.5;
+    video.playbackRate = 0.5;
+    video.addEventListener('loadedmetadata', function () {
+      video.playbackRate = 0.5;
+    }, { once: true });
+  });
   if (imageTrigger && imageLightbox) {
-    var lightboxImage = imageLightbox.querySelector('img');
+    var lightboxImage = imageLightbox.querySelector('video');
     var closingLightbox = false;
     var lightboxDuration = 610;
     function imageRect(element) {
@@ -41,21 +49,31 @@
       closingLightbox = true;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         imageLightbox.close();
+        lightboxImage.pause();
         closingLightbox = false;
         return;
       }
       imageLightbox.classList.remove('is-visible');
-      setLightboxImageRect(imageRect(imageTrigger.querySelector('img')));
+      setLightboxImageRect(imageRect(imageTrigger.querySelector('video')));
       window.setTimeout(function () {
         imageLightbox.close();
+        lightboxImage.pause();
         closingLightbox = false;
       }, lightboxDuration);
     }
     imageTrigger.addEventListener('click', function () {
-      var originRect = imageRect(imageTrigger.querySelector('img'));
+      var triggerVideo = imageTrigger.querySelector('video');
+      var originRect = imageRect(triggerVideo);
       setLightboxImageRect(originRect);
+      if (lightboxImage.readyState > 0) {
+        try { lightboxImage.currentTime = triggerVideo.currentTime; } catch (error) {}
+      }
       imageLightbox.showModal();
-      var aspect = lightboxImage.naturalWidth / lightboxImage.naturalHeight;
+      var aspect = lightboxImage.videoWidth && lightboxImage.videoHeight
+        ? lightboxImage.videoWidth / lightboxImage.videoHeight
+        : 800 / 384;
+      var playPromise = lightboxImage.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(function () {});
       var pageWidth = document.querySelector('.publication-header .container.is-max-desktop').getBoundingClientRect().width;
       var targetWidth = Math.min(pageWidth, window.innerWidth * .9, window.innerHeight * .82 * aspect);
       var targetHeight = targetWidth / aspect;

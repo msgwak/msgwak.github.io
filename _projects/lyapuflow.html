@@ -60,14 +60,14 @@ category: work
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/bulma.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/template.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-body-line-height">
+    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-hero-video">
     <style>
       .method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
       .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
       .method-figure .method-frame.is-current { opacity: 1; }
       @media (max-width: 768px) { .method-figure { width: 100%; } }
     </style>
-    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-method-slower"></script>
+    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-hero-video-slower-50"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -78,8 +78,10 @@ category: work
             <div class="publication-hero-layout">
               <div class="publication-hero-top">
                 <h1 class="title is-1 publication-title"><span class="project-name">LyapuFlow:</span><span class="paper-title">Controlling Generative Flows with<br class="desktop-break"> Lyapunov Feedback for Inverse Problems</span></h1>
-                <button type="button" class="publication-image-trigger" aria-label="View enlarged LyapuFlow illustration">
-                  <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high" draggable="false">
+                <button type="button" class="publication-image-trigger" aria-label="View enlarged LyapuFlow animation">
+                  <video class="publication-hero-image" autoplay loop muted playsinline preload="metadata" poster="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" aria-label="Looping LyapuFlow animation">
+                    <source src="{{ '/assets/lyapuflow/images/lyapuflow_hero.mp4' | relative_url }}" type="video/mp4">
+                  </video>
                 </button>
               </div>
               <div class="publication-hero-details">
@@ -189,9 +191,11 @@ category: work
         </div>
       </section>
     </main>
-    <dialog class="image-lightbox" id="icon-lightbox" aria-label="Enlarged LyapuFlow illustration">
-      <button type="button" class="image-lightbox-close" aria-label="Close enlarged image">×</button>
-      <img src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." draggable="false">
+    <dialog class="image-lightbox" id="icon-lightbox" aria-label="Enlarged LyapuFlow animation">
+      <button type="button" class="image-lightbox-close" aria-label="Close enlarged animation">×</button>
+      <video autoplay loop muted playsinline preload="metadata" poster="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" aria-label="Looping LyapuFlow animation">
+        <source src="{{ '/assets/lyapuflow/images/lyapuflow_hero.mp4' | relative_url }}" type="video/mp4">
+      </video>
     </dialog>
     <footer class="footer">
       <div class="container is-max-desktop has-text-centered">
