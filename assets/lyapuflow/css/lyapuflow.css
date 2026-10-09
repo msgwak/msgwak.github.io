@@ -111,7 +111,7 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
   .publication-hero-top { grid-template-columns: 1fr; gap: 1.5rem; }
   .publication-hero-image { max-width: 360px; }
 }
-@media (min-width: 1150px) {
+@media (min-width: 1024px) {
   .publication-header { overflow: visible; }
   .publication-image-trigger { width: calc(100% + 4rem); max-width: none; margin-left: 0; margin-right: 0; }
   .publication-hero-image { max-width: none; }
