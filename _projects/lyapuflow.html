@@ -59,14 +59,15 @@ category: work
     <link rel="icon" href="{{ '/assets/lyapuflow/images/favicon.svg' | relative_url }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/bulma.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/template.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010">
+    <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-method-section-spacing-4">
     <style>
-      .method-figure { position: relative; width: 75%; aspect-ratio: 1880 / 640; margin: 1.2rem auto 0; }
-      .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .65s ease-in-out; }
+      .method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
+      .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
       .method-figure .method-frame.is-current { opacity: 1; }
       @media (max-width: 768px) { .method-figure { width: 100%; } }
     </style>
-    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010"></script>
+    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-method-slower"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -78,21 +79,21 @@ category: work
               <div class="publication-hero-top">
                 <h1 class="title is-1 publication-title"><span class="project-name">LyapuFlow:</span><span class="paper-title">Controlling Generative Flows with<br class="desktop-break"> Lyapunov Feedback for Inverse Problems</span></h1>
                 <button type="button" class="publication-image-trigger" aria-label="View enlarged LyapuFlow illustration">
-                  <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high">
+                  <img class="publication-hero-image" src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." fetchpriority="high" draggable="false">
                 </button>
               </div>
               <div class="publication-hero-details">
                 <div class="is-size-5 publication-authors">
-                  <span class="author-block"><a href="{{ '/' | relative_url }}" target="_blank" rel="noopener noreferrer">Minseon Gwak</a><sup>1,4</sup>,</span>
-                  <span class="author-block"><a href="https://hans66hsu.github.io/" target="_blank" rel="noopener noreferrer">Hans Hao-Hsun Hsu</a><sup>2</sup>,</span>
-                  <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup>,</span>
+                  <span class="author-block"><a href="https://msgwak.github.io/" target="_blank" rel="noopener noreferrer">Minseon Gwak</a><sup>1,4</sup><span class="author-separator">,</span></span>
+                  <span class="author-block"><a href="https://hans66hsu.github.io/" target="_blank" rel="noopener noreferrer">Hans Hao-Hsun Hsu</a><sup>2</sup><span class="author-separator">,</span></span>
+                  <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup><span class="author-separator">,</span></span>
                   <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
                 </div>
                 <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology · <sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
                 <div class="publication-links">
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6zM14 3.75v4h4M9 12h6M9 15.5h6"/></svg>Paper</a></span>
-                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="3.5"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)"/><circle cx="12" cy="12" r="1"/></svg>arXiv</a></span>
-                  <span class="link-block"><button type="button" class="button is-dark is-rounded" id="scroll-to-citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5 3.5 12 8 19M16 5l4.5 7-4.5 7M14 4l-4 16"/></svg>BibTeX</button></span>
+                  <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><i class="ai ai-arxiv" aria-hidden="true"></i>arXiv</a></span>
+                  <span class="link-block"><button type="button" class="button is-dark is-rounded" id="scroll-to-citation"><span class="bibtex-quote-icon" aria-hidden="true">”</span>BibTeX</button></span>
                 </div>
               </div>
             </div>
@@ -120,12 +121,12 @@ category: work
               <article><span class="step-number">03</span><h3>Control within trust region</h3><p>Apply minimum-norm feedback when needed (active control), bounded relative to the pretrained flow.</p></article>
             </div>
             <figure class="method-figure">
-              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-1.png' | relative_url }}" alt="Uncontrolled flow at the current sample." width="1880" height="640" aria-hidden="true">
-              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-2.png' | relative_url }}" alt="Predict the terminal sample along the uncontrolled flow." width="1880" height="640" aria-hidden="true">
-              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-3.png' | relative_url }}" alt="Evaluate whether the predicted sample satisfies the Lyapunov decay condition." width="1880" height="640" aria-hidden="true">
-              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-4.png' | relative_url }}" alt="Keep control inactive or apply raw feedback according to the decay condition." width="1880" height="640" aria-hidden="true">
-              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-5.png' | relative_url }}" alt="Bound the active feedback within a trust region." width="1880" height="640" aria-hidden="true">
-              <img class="method-frame is-current" src="{{ '/assets/lyapuflow/images/method-steps/step-6.png' | relative_url }}" alt="Advance along the controlled flow while preserving the pretrained dynamics." width="1880" height="640">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-1.png' | relative_url }}" alt="Uncontrolled flow at the current sample." width="1880" height="640" aria-hidden="true" draggable="false">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-2.png' | relative_url }}" alt="Predict the terminal sample along the uncontrolled flow." width="1880" height="640" aria-hidden="true" draggable="false">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-3.png' | relative_url }}" alt="Evaluate whether the predicted sample satisfies the Lyapunov decay condition." width="1880" height="640" aria-hidden="true" draggable="false">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-4.png' | relative_url }}" alt="Keep control inactive or apply raw feedback according to the decay condition." width="1880" height="640" aria-hidden="true" draggable="false">
+              <img class="method-frame" src="{{ '/assets/lyapuflow/images/method-steps/step-5.png' | relative_url }}" alt="Bound the active feedback within a trust region." width="1880" height="640" aria-hidden="true" draggable="false">
+              <img class="method-frame is-current" src="{{ '/assets/lyapuflow/images/method-steps/step-6.png' | relative_url }}" alt="Advance along the controlled flow while preserving the pretrained dynamics." width="1880" height="640" draggable="false">
               <button type="button" class="method-pause" aria-label="Pause animation" hidden></button>
             </figure>
           </div>
@@ -139,19 +140,19 @@ category: work
           <article class="result-item">
             <p><strong>Higher sample fidelity while satisfying physical constraints.</strong> In these 1D Burgers examples, the top panel shows average solutions for a group with the same initial condition, and the bottom panel shows the pointwise absolute error relative to the ground truth. Constraints include the initial condition, nonlinear local dynamics enforced with a Godunov update over the first five time steps, and mass balance.</p>
             <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/burgers.png' | relative_url }}?v=20261010-6x" alt="Comparison of generated Burgers solutions and absolute errors across LyapuFlow and baseline methods." loading="lazy" draggable="false">
             </figure>
           </article>
           <article class="result-item">
             <p>These 2D NS examples show generated solutions subject to constraints on the initial vorticity and total-vorticity conservation.</p>
             <figure class="research-figure result-figure ns-animation-figure">
-              <img src="{{ '/assets/lyapuflow/images/ns-index5-6.gif' | relative_url }}" alt="Looping comparison of initial vorticity, ground truth, and LyapuFlow for two Navier–Stokes examples across 50 time steps, with one shared vertical color scale." width="1000" height="179" loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/ns-index5-6.gif' | relative_url }}?v=20261010-hq-oriented" alt="Looping comparison of initial vorticity, ground truth, and LyapuFlow for two Navier–Stokes examples across 50 time steps, with one shared vertical color scale." width="1000" height="179" loading="lazy" draggable="false">
             </figure>
           </article>
           <article class="result-item">
             <p><strong>Task adaptability through decay-rate tuning.</strong> Unlike other samplers, which require task-specific tuning of the guidance step size, LyapuFlow can adapt relatively easily across tasks and models by adjusting its Lyapunov decay rate.</p>
             <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/sensitivity-all.png' | relative_url }}" alt="Hyperparameter sensitivity across seven PDE samplers, including LyapuFlow and DPS." loading="lazy" draggable="false">
             </figure>
           </article>
         </div>
@@ -164,13 +165,13 @@ category: work
           <article class="result-item">
             <p><strong>Reconstruction of instance-specific image details.</strong> In the following 4× super-resolution and motion-deblurring examples, LyapuFlow avoids hallucinated antennae on the butterfly and better preserves high-frequency components in the cat reconstruction.</p>
             <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/image-results.png' | relative_url }}" alt="Image reconstruction comparisons showing observations, baseline reconstructions, LyapuFlow, and ground truth with detail crops." loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/image-results.png' | relative_url }}?v=20261010-6x" alt="Image reconstruction comparisons showing observations, baseline reconstructions, LyapuFlow, and ground truth with detail crops." loading="lazy" draggable="false">
             </figure>
           </article>
           <article class="result-item">
             <p><strong>Sampling budget test.</strong> These Gaussian deblurring examples compare FlowDPS and LyapuFlow at different numbers of function evaluations (NFEs). Although a larger budget reduces some FlowDPS artifacts, the freckles in the first row remain faint and the eyelid crease in the second row stays absent; LyapuFlow preserves both details at either budget.</p>
             <figure class="research-figure result-figure">
-              <img src="{{ '/assets/lyapuflow/images/image-nfe.png' | relative_url }}" alt="Gaussian deblurring comparison of FlowDPS and LyapuFlow with 28 and 40 function evaluations, alongside measurements and ground truth." loading="lazy">
+              <img src="{{ '/assets/lyapuflow/images/image-nfe.png' | relative_url }}?v=20261010-6x" alt="Gaussian deblurring comparison of FlowDPS and LyapuFlow with 28 and 40 function evaluations, alongside measurements and ground truth." loading="lazy" draggable="false">
             </figure>
           </article>
         </div>
@@ -190,7 +191,7 @@ category: work
     </main>
     <dialog class="image-lightbox" id="icon-lightbox" aria-label="Enlarged LyapuFlow illustration">
       <button type="button" class="image-lightbox-close" aria-label="Close enlarged image">×</button>
-      <img src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential.">
+      <img src="{{ '/assets/lyapuflow/figs/lyapuflow_hero.png' | relative_url }}" alt="LyapuFlow illustration showing a controlled flow moving through a Lyapunov potential." draggable="false">
     </dialog>
     <footer class="footer">
       <div class="container is-max-desktop has-text-centered">

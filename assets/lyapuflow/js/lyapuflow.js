@@ -92,7 +92,7 @@
     var steps = Array.from(methodAnimation.querySelectorAll('.method-steps article'));
     var pauseMethod = methodAnimation.querySelector('.method-pause');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var frameDurations = [1200, 1600, 1600, 900, 900, 1600];
+    var frameDurations = [1700, 2100, 2100, 1400, 1400, 2100];
     var frameSteps = [0, 0, 1, 2, 2, 2];
     var methodTimer;
     var methodVisible = false;
@@ -101,10 +101,26 @@
     var frameIndex = 0;
 
     function showMethodFrame(index) {
-      frames.forEach(function (frame, i) {
-        frame.classList.toggle('is-current', i === index);
-        frame.setAttribute('aria-hidden', String(i !== index));
-      });
+      var nextFrame = frames[index];
+      var currentFrame = frames.find(function (frame) { return frame.classList.contains('is-current'); });
+      function commitFrame() {
+        frames.forEach(function (frame, i) {
+          frame.classList.remove('is-entering', 'is-entering-active');
+          frame.classList.toggle('is-current', i === index);
+          frame.setAttribute('aria-hidden', String(i !== index));
+        });
+      }
+      if (!currentFrame || currentFrame === nextFrame || reducedMotion.matches) {
+        commitFrame();
+      } else {
+        nextFrame.classList.add('is-entering');
+        nextFrame.setAttribute('aria-hidden', 'false');
+        nextFrame.addEventListener('animationend', function finishEntering(event) {
+          if (event.target !== nextFrame) return;
+          commitFrame();
+        }, { once: true });
+        requestAnimationFrame(function () { nextFrame.classList.add('is-entering-active'); });
+      }
       steps.forEach(function (step, i) {
         step.classList.toggle('is-revealed', i <= frameSteps[index]);
       });

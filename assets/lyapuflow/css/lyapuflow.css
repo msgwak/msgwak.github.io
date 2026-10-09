@@ -11,11 +11,11 @@ body { line-height: 1.5; font-size: 1rem; }
 .project-nav { max-width: 1120px; margin: auto; padding: 1.5rem; display: flex; justify-content: space-between; gap: 1rem; font-size: 1rem; }
 .project-nav a { color: var(--text-secondary); }
 .project-nav div { display: flex; gap: 1.5rem; }
-.publication-header .hero-body { padding: 3.5rem 1.5rem 2rem; }
+.publication-header .hero-body { padding: 3.5rem 1.5rem 1rem; }
 .publication-hero-layout { display: block; }
 .publication-hero-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 330px); align-items: center; gap: 1rem; }
 .publication-hero-top .publication-title { position: relative; top: .4rem; margin-bottom: 0; }
-.publication-image-trigger { display: block; width: 100%; max-width: 330px; margin-inline: auto; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.publication-image-trigger { position: relative; top: -.55rem; display: block; width: 100%; max-width: 330px; margin-inline: auto; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
 .publication-hero-image { display: block; width: 100%; max-width: 330px; height: auto; margin-inline: auto; -webkit-mask-image: linear-gradient(to right, #000 0%, #000 90%, rgba(0, 0, 0, .45) 97%, transparent 100%); mask-image: linear-gradient(to right, #000 0%, #000 90%, rgba(0, 0, 0, .45) 97%, transparent 100%); transform: scale(1); transition: transform .8s ease; }
 .publication-hero-image:hover { transform: scale(1.07); }
 .image-lightbox { position: fixed; inset: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; overflow: visible; margin: 0; padding: 0; border: 0; background: transparent; }
@@ -28,31 +28,36 @@ body { line-height: 1.5; font-size: 1rem; }
 .publication-title .project-name, .publication-title .paper-title { font-size: 2.1rem; }
 .publication-title .project-name { font-size: 2.3rem; }
 .project-name { color: var(--primary-color); }
-.publication-authors { margin-bottom: .8rem; font-size: 1.15rem !important; }
-.publication-hero-details { width: 100%; margin-top: 1.25rem; }
+.publication-authors { margin-bottom: 0; font-size: 1.15rem !important; line-height: 1.25; }
+.publication-hero-details { width: 100%; margin-top: 0; }
 .affiliations { color: #647174; line-height: 1.5; font-size: 1.05rem; }
-.publication-links { margin-top: 1rem; }
-.publication-links .link-block button { margin: 8px 4px; }
-.publication-links .button { gap: .65rem; }
+.publication-links { margin-top: .65rem; }
+.publication-links .link-block button { margin: 8px 4px 2px; }
+.publication-links .button { gap: .4rem; padding-left: .75em; padding-right: .9em; }
 .publication-links .button svg { display: inline-block; width: 18px; min-width: 18px; height: 18px; flex: 0 0 18px; visibility: visible; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.publication-links .button .bibtex-quote-icon { position: relative; top: 5px; display: inline-block; width: 18px; min-width: 18px; height: 18px; flex: 0 0 18px; color: #fff; font: 700 29px/21px Georgia, serif; text-align: center; }
+.publication-links .button .ai { display: inline-block; width: 18px; min-width: 18px; height: 18px; flex: 0 0 18px; color: #fff; font-size: 18px; line-height: 18px; text-align: center; }
 .research-figure { margin: 1.5rem 0 0; }
 .research-figure img { display: block; width: 100%; height: auto; }
 .section { padding: 4rem 1.5rem; scroll-margin-top: 1rem; }
-#scientific-results, #image-results { padding-block: 2.5rem; }
-#overview { padding-top: 2.8rem; padding-bottom: 2.15rem; }
+#scientific-results, #image-results { padding-block: 1.25rem 1.5rem; }
+#overview { padding-block: 2.1rem 1rem; }
 #scientific-results { border-top: 1px solid rgba(34, 52, 56, .16); }
 #image-results { border-top: 1px solid rgba(34, 52, 56, .16); }
 .section#citation { padding-block: 1.25rem; }
-.section h2.title.is-3 { font-size: 1.7rem; margin-bottom: 1rem; }
+.section h2.title.is-3 { font-size: 1.7rem; margin-bottom: 1.6rem !important; }
 #abstract { padding-top: 1.25rem; padding-bottom: 1.5rem; }
 .overview-copy { margin: 1.25rem auto 1.5rem; font-size: 1rem; line-height: 1.55; }
 .abstract-copy { margin: 1.75rem auto 0; font-size: 1rem; line-height: 1.55; }
-.method-figure { position: relative; width: 75%; aspect-ratio: 1880 / 640; margin: 1.2rem auto 0; }
-.method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .65s ease-in-out; }
-.method-figure .method-frame.is-current { opacity: 1; }
+.method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
+.method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
+.method-figure .method-frame.is-current { z-index: 1; opacity: 1; }
+.method-figure .method-frame.is-entering { z-index: 2; }
+.method-figure .method-frame.is-entering.is-entering-active { animation: method-frame-appear .65s ease-in-out both; }
+@keyframes method-frame-appear { from { opacity: 0; } to { opacity: 1; } }
 .method-animation.is-playing .method-steps article { opacity: 0; transition: opacity .65s ease-in-out; }
 .method-animation.is-playing .method-steps article.is-revealed { opacity: 1; }
-.method-pause { position: absolute; right: -2.5rem; bottom: 1.1rem; z-index: 2; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; overflow: hidden; padding: 0; border: 1px solid #c5dbd7; border-radius: 50%; background: #fff; color: var(--primary-color); font-size: 0; line-height: 0; white-space: nowrap; cursor: pointer; }
+.method-pause { position: absolute; right: -2.5rem; bottom: 1.85rem; z-index: 2; display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; overflow: hidden; padding: 0; border: 1px solid #c5dbd7; border-radius: 50%; background: #fff; color: var(--primary-color); font-size: 0; line-height: 0; white-space: nowrap; cursor: pointer; }
 .method-pause[hidden] { display: none; }
 .method-pause::before { content: ""; display: block; width: 14px; height: 14px; background: linear-gradient(to right, currentColor 0 4px, transparent 4px 10px, currentColor 10px 14px); }
 .method-pause.is-paused::before { width: 0; height: 0; margin-left: 3px; background: none; border-top: 7px solid transparent; border-bottom: 7px solid transparent; border-left: 11px solid currentColor; }
@@ -76,6 +81,7 @@ a { color: var(--primary-color); }
 .citation-heading .title { margin: 0; }
 .citation-actions { grid-column: 3; grid-row: 1; justify-self: end; display: flex; align-items: center; gap: .65rem; }
 .citation-actions .button { gap: .55rem; }
+.citation-actions #copy-citation { gap: .4rem; padding-left: .75em; padding-right: .9em; }
 .citation-actions .back-to-top { margin-top: 0; }
 .citation-heading .button svg { display: inline-block; width: 18px; height: 18px; flex: none; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 #citation pre { min-width: 0; max-width: 100%; margin: 0 0 .5rem; padding: .65rem .8rem; font-size: .8rem; line-height: 1.35; }
@@ -90,7 +96,7 @@ pre { white-space: pre; overflow-x: auto; font-size: .85rem; }
 .skip-link:focus { top: 1rem; }
 button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; }
 @media (max-width: 600px) {
-  #overview { padding-top: 2.5rem; }
+  #overview { padding-block: 2.1rem 1rem; }
   .method-figure { width: 100%; }
   .method-pause { right: 0; }
   .project-nav { font-size: 1rem; padding: 1rem; }
@@ -120,5 +126,6 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
-.publication-authors sup { color: var(--primary-color); font-size: .7em; margin-left: .12rem; }
-.affiliations { margin: 1rem auto 0; }
+.publication-authors sup, .publication-authors .author-separator { color: var(--primary-color); }
+.publication-authors sup { font-size: .7em; margin-left: .12rem; }
+.affiliations { margin: .6rem auto 0; }
