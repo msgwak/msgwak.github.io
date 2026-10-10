@@ -192,6 +192,7 @@
     var flowTimeValue = document.getElementById('flow-time-value');
     var trajectoryImages = Array.from(document.querySelectorAll('.trajectory-frame'));
     var endpointBalls = Array.from(document.querySelectorAll('.trajectory-endpoint-ball'));
+    var vDistanceLines = Array.from(document.querySelectorAll('.trajectory-v-distance'));
     var imageBase = trajectoryImages[0].getAttribute('src').replace(/[^/]+$/, '');
     var guidanceArrows = Array.from(document.querySelectorAll('[data-arrow-path]')).map(function (path) {
       var head = document.querySelector('[data-arrow-head="' + path.dataset.arrowPath + '"]');
@@ -210,7 +211,7 @@
         var src = imageBase + frame.src;
         if (image.getAttribute('src') !== src) {
           image.src = src;
-          image.alt = (image.dataset.method === 'cfg' ? 'CFG only' : 'LyapuFlow') + ' reconstruction at flow time ' + time.toFixed(3);
+          image.alt = (image.dataset.method === 'cfg' ? 'Uncontrolled' : 'LyapuFlow') + ' reconstruction at flow time ' + time.toFixed(3);
         }
       });
       guidanceArrows.forEach(function (arrow) {
@@ -226,6 +227,9 @@
       });
       endpointBalls.forEach(function (ball) {
         ball.classList.toggle('is-visible', frameIndex === finalFrameIndex);
+      });
+      vDistanceLines.forEach(function (line) {
+        line.classList.toggle('is-visible', frameIndex === finalFrameIndex);
       });
     }
     flowTime.value = flowTime.defaultValue;

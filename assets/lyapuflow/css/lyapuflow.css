@@ -152,6 +152,8 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 .trajectory-arrowhead-lyapuflow { fill: #eeb000; }
 .trajectory-endpoint-ball { opacity: 0; transition: opacity .2s ease; }
 .trajectory-endpoint-ball.is-visible { opacity: 1; }
+.trajectory-v-distance { fill: none; stroke: rgba(51, 65, 75, .68); stroke-width: 2.5; stroke-dasharray: 3 7; stroke-linecap: round; opacity: 0; transition: opacity .2s ease; }
+.trajectory-v-distance.is-visible { opacity: 1; }
 .trajectory-v-label { fill: #333; font: italic 53px Georgia, serif; text-anchor: middle; }
 .trajectory-measurement-label { fill: #34474a; font: 600 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; text-anchor: middle; }
 .trajectory-measurement-link { fill: none; stroke: #80969a; stroke-width: 3; stroke-dasharray: 10 9; }
