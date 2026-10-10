@@ -259,6 +259,8 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - assets/lyapuflow/images/flickr_dog_000217_deblur_gauss_trajectory.zip
+  - assets/lyapuflow/lyapuflow_hero.key
 keep_files:
   - CNAME
   - .nojekyll

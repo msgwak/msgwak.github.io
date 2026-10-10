@@ -58,16 +58,16 @@ category: work
     <meta name="theme-color" content="#176b70">
     <link rel="icon" href="{{ '/assets/lyapuflow/images/favicon.svg' | relative_url }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/bulma.min.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/template.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/template.css' | relative_url }}?v=20261010-author-underline-center-animated">
     <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-hero-video">
+    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-slider-narrower">
     <style>
       .method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
       .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
       .method-figure .method-frame.is-current { opacity: 1; }
       @media (max-width: 768px) { .method-figure { width: 100%; } }
     </style>
-    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-hero-video-slower-50"></script>
+    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-final-trajectory-balls"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -91,7 +91,7 @@ category: work
                   <span class="author-block"><a href="https://dcmaddix.github.io/" target="_blank" rel="noopener noreferrer">Danielle C. Maddix</a><sup>3</sup><span class="author-separator">,</span></span>
                   <span class="author-block"><a href="https://www.benerichson.com/" target="_blank" rel="noopener noreferrer">N. Benjamin Erichson</a><sup>1,4</sup></span>
                 </div>
-                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab · <sup>2</sup> Georgia Institute of Technology · <sup>3</sup> Siemens · <sup>4</sup> International Computer Science Institute</p>
+                <p class="affiliations"><sup>1</sup> Lawrence Berkeley National Lab&nbsp;&nbsp;<sup>2</sup> Georgia Institute of Technology&nbsp;&nbsp;<sup>3</sup> Siemens&nbsp;&nbsp;<sup>4</sup> International Computer Science Institute</p>
                 <div class="publication-links">
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/pdf/2610.04326"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6zM14 3.75v4h4M9 12h6M9 15.5h6"/></svg>Paper</a></span>
                   <span class="link-block"><a class="button is-dark is-rounded" href="https://arxiv.org/abs/2610.04326"><i class="ai ai-arxiv" aria-hidden="true"></i>arXiv</a></span>
@@ -113,8 +113,44 @@ category: work
       <section class="section" id="overview">
         <div class="container is-max-desktop">
           <h2 class="title is-3 has-text-centered">Method overview</h2>
+          <p class="method-intro">Classical Lyapunov control uses feedback to make an energy-like function decrease along a dynamical system's trajectory. Here, control acts on an intermediate sample of a pretrained generative flow, while the physical or measurement constraint applies to the final sample. LyapuFlow defines the Lyapunov function V in terms of the predicted final sample's constraint violation, then uses it to guide the flow without overwhelming the learned dynamics.</p>
+          <div class="method-trajectory">
+            <div class="trajectory-control">
+              <label for="flow-time">Flow time <output id="flow-time-value" for="flow-time">0.000</output></label>
+              <input id="flow-time" type="range" min="0" max="27" step="1" value="0">
+            </div>
+            <div class="trajectory-grid" aria-label="Image reconstruction trajectory">
+              <figure class="trajectory-diagram-figure">
+                <svg class="trajectory-diagram" viewBox="0 0 1024 538" role="img" aria-label="The measurement defines V; the upper red CFG only arrow and lower yellow LyapuFlow arrow extend with flow time">
+                  <defs>
+                    <radialGradient id="trajectory-blue-ball" cx="35%" cy="25%"><stop stop-color="#8bc6ff"/><stop offset=".55" stop-color="#3283ed"/><stop offset="1" stop-color="#263cc7"/></radialGradient>
+                    <radialGradient id="trajectory-yellow-ball" cx="35%" cy="25%"><stop stop-color="#fff4a0"/><stop offset=".55" stop-color="#ffc729"/><stop offset="1" stop-color="#ec8c00"/></radialGradient>
+                    <radialGradient id="trajectory-pink-ball" cx="35%" cy="25%"><stop stop-color="#ffc2d8"/><stop offset=".55" stop-color="#ef5a97"/><stop offset="1" stop-color="#cc1c72"/></radialGradient>
+                  </defs>
+                  <image href="{{ '/assets/lyapuflow/images/flow-trajectory-terrain.png' | relative_url }}" x="0" y="40" width="1024" height="491"/>
+                  <path class="trajectory-arrow trajectory-arrow-cfg" data-arrow-path="cfg" d="M 219 355 C 361 313, 470 285, 582 294 S 790 311, 870 349"/>
+                  <path class="trajectory-arrow trajectory-arrow-lyapuflow" data-arrow-path="lyapuflow" d="M 219 355 C 340 330, 426 369, 514 388 S 646 397, 705 393"/>
+                  <polygon class="trajectory-arrowhead trajectory-arrowhead-cfg" data-arrow-head="cfg" points="0,0 -18,-8 -14,0 -18,8"/>
+                  <polygon class="trajectory-arrowhead trajectory-arrowhead-lyapuflow" data-arrow-head="lyapuflow" points="0,0 -18,-8 -14,0 -18,8"/>
+                  <image href="{{ '/assets/lyapuflow/images/flow-trajectory-lyapunov.png' | relative_url }}" x="0" y="18" width="1024" height="491"/>
+                  <text class="trajectory-v-label" x="722" y="75">V</text>
+                  <image href="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/input.jpg' | relative_url }}" x="42" y="48" width="165" height="165"/>
+                  <text class="trajectory-measurement-label" x="124" y="251">Measurement</text>
+                  <path class="trajectory-measurement-link" d="M 210 115 C 335 30 501 28 676 72"/>
+                  <polygon class="trajectory-measurement-head" points="679,73 658,57 660,75"/>
+                  <circle cx="219" cy="355" r="17" fill="url(#trajectory-blue-ball)"/>
+                  <circle class="trajectory-endpoint-ball" cx="720" cy="393" r="17" fill="url(#trajectory-yellow-ball)"/>
+                  <circle class="trajectory-endpoint-ball" cx="886" cy="353" r="17" fill="url(#trajectory-pink-ball)"/>
+                </svg>
+              </figure>
+              <figure><img class="trajectory-frame" data-method="cfg" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/cfg_01_t0.987381.jpg' | relative_url }}" alt="CFG only reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-cfg" aria-hidden="true"></i>CFG only</figcaption></figure>
+              <figure><img class="trajectory-frame" data-method="lyapuflow" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/lyapuflow_01_t0.963074.jpg' | relative_url }}" alt="LyapuFlow reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-lyapuflow" aria-hidden="true"></i>LyapuFlow (Ours)</figcaption></figure>
+              <figure><img src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/ground_truth.jpg' | relative_url }}" alt="Ground-truth dog image" width="768" height="768" draggable="false"><figcaption>Ground Truth</figcaption></figure>
+            </div>
+            <script type="application/json" id="trajectory-frames">{"cfg":[{"time":0.0,"src":"cfg_28_t0.000000.jpg"},{"time":0.008929,"src":"cfg_27_t0.008929.jpg"},{"time":0.110906,"src":"cfg_26_t0.110906.jpg"},{"time":0.199827,"src":"cfg_25_t0.199827.jpg"},{"time":0.278049,"src":"cfg_24_t0.278049.jpg"},{"time":0.347393,"src":"cfg_23_t0.347393.jpg"},{"time":0.409289,"src":"cfg_22_t0.409289.jpg"},{"time":0.464876,"src":"cfg_21_t0.464876.jpg"},{"time":0.515072,"src":"cfg_20_t0.515072.jpg"},{"time":0.560625,"src":"cfg_19_t0.560625.jpg"},{"time":0.602151,"src":"cfg_18_t0.602151.jpg"},{"time":0.64016,"src":"cfg_17_t0.640160.jpg"},{"time":0.675082,"src":"cfg_16_t0.675082.jpg"},{"time":0.707279,"src":"cfg_15_t0.707279.jpg"},{"time":0.737056,"src":"cfg_14_t0.737056.jpg"},{"time":0.764677,"src":"cfg_13_t0.764677.jpg"},{"time":0.790368,"src":"cfg_12_t0.790368.jpg"},{"time":0.814325,"src":"cfg_11_t0.814325.jpg"},{"time":0.836717,"src":"cfg_10_t0.836717.jpg"},{"time":0.857692,"src":"cfg_09_t0.857692.jpg"},{"time":0.877382,"src":"cfg_08_t0.877382.jpg"},{"time":0.8959,"src":"cfg_07_t0.895900.jpg"},{"time":0.913349,"src":"cfg_06_t0.913349.jpg"},{"time":0.929818,"src":"cfg_05_t0.929818.jpg"},{"time":0.945388,"src":"cfg_04_t0.945388.jpg"},{"time":0.960129,"src":"cfg_03_t0.960129.jpg"},{"time":0.974108,"src":"cfg_02_t0.974108.jpg"},{"time":0.987381,"src":"cfg_01_t0.987381.jpg"}],"lyapuflow":[{"time":0.0,"src":"lyapuflow_28_t0.000000.jpg"},{"time":0.002994,"src":"lyapuflow_27_t0.002994.jpg"},{"time":0.03992,"src":"lyapuflow_26_t0.039920.jpg"},{"time":0.076846,"src":"lyapuflow_25_t0.076846.jpg"},{"time":0.113772,"src":"lyapuflow_24_t0.113772.jpg"},{"time":0.150699,"src":"lyapuflow_23_t0.150699.jpg"},{"time":0.187625,"src":"lyapuflow_22_t0.187625.jpg"},{"time":0.224551,"src":"lyapuflow_21_t0.224551.jpg"},{"time":0.261477,"src":"lyapuflow_20_t0.261477.jpg"},{"time":0.298403,"src":"lyapuflow_19_t0.298403.jpg"},{"time":0.335329,"src":"lyapuflow_18_t0.335329.jpg"},{"time":0.372255,"src":"lyapuflow_17_t0.372255.jpg"},{"time":0.409182,"src":"lyapuflow_16_t0.409182.jpg"},{"time":0.446108,"src":"lyapuflow_15_t0.446108.jpg"},{"time":0.483034,"src":"lyapuflow_14_t0.483034.jpg"},{"time":0.51996,"src":"lyapuflow_13_t0.519960.jpg"},{"time":0.556886,"src":"lyapuflow_12_t0.556886.jpg"},{"time":0.593812,"src":"lyapuflow_11_t0.593812.jpg"},{"time":0.630739,"src":"lyapuflow_10_t0.630739.jpg"},{"time":0.667665,"src":"lyapuflow_09_t0.667665.jpg"},{"time":0.704591,"src":"lyapuflow_08_t0.704591.jpg"},{"time":0.741517,"src":"lyapuflow_07_t0.741517.jpg"},{"time":0.778443,"src":"lyapuflow_06_t0.778443.jpg"},{"time":0.815369,"src":"lyapuflow_05_t0.815369.jpg"},{"time":0.852295,"src":"lyapuflow_04_t0.852295.jpg"},{"time":0.889222,"src":"lyapuflow_03_t0.889222.jpg"},{"time":0.926148,"src":"lyapuflow_02_t0.926148.jpg"},{"time":0.963074,"src":"lyapuflow_01_t0.963074.jpg"}]}</script>
+          </div>
           <div class="overview-copy content">
-            <p>LyapuFlow adds inference-time feedback control to a pretrained flow model. It evaluates constraint violations on a predicted terminal sample and uses a Lyapunov decrease condition to guide generation toward lower violations while preserving the learned flow dynamics. When the uncontrolled flow already reduces violations at the prescribed rate, control stays inactive; otherwise, a minimum-norm correction within a trust region steers the sample without overwhelming the pretrained dynamics. For latent flow-matching models composed of a latent-space velocity model and a decoder, the contribution of the latent-space velocity model to the final control can be adjusted across sampling steps. No retraining is required.</p>
+            <p>When the pretrained flow already reduces the predicted violation at the prescribed rate, control stays inactive; otherwise, a minimum-norm correction within a trust region steers the sample in a direction that decreases V while preserving the learned dynamics. For latent flow-matching models composed of a latent-space velocity model and a decoder, the contribution of the latent-space velocity model to the final control can be adjusted across sampling steps. No retraining is required.</p>
           </div>
           <div class="method-animation">
             <div class="method-steps">

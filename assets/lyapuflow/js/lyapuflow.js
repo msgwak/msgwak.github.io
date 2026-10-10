@@ -185,6 +185,53 @@
     });
   }
 
+  var trajectoryData = document.getElementById('trajectory-frames');
+  var flowTime = document.getElementById('flow-time');
+  if (trajectoryData && flowTime) {
+    var trajectories = JSON.parse(trajectoryData.textContent);
+    var flowTimeValue = document.getElementById('flow-time-value');
+    var trajectoryImages = Array.from(document.querySelectorAll('.trajectory-frame'));
+    var endpointBalls = Array.from(document.querySelectorAll('.trajectory-endpoint-ball'));
+    var imageBase = trajectoryImages[0].getAttribute('src').replace(/[^/]+$/, '');
+    var guidanceArrows = Array.from(document.querySelectorAll('[data-arrow-path]')).map(function (path) {
+      var head = document.querySelector('[data-arrow-head="' + path.dataset.arrowPath + '"]');
+      return { path: path, head: head, length: path.getTotalLength() };
+    });
+    function updateTrajectory() {
+      var frameIndex = Number(flowTime.value);
+      var finalFrameIndex = Number(flowTime.max);
+      var time = frameIndex / finalFrameIndex;
+      flowTimeValue.value = time.toFixed(3);
+      flowTimeValue.textContent = time.toFixed(3);
+      trajectoryImages.forEach(function (image) {
+        var frames = trajectories[image.dataset.method];
+        var frame = frames[frames.length - 1 - frameIndex];
+        var src = imageBase + frame.src;
+        if (image.getAttribute('src') !== src) {
+          image.src = src;
+          image.alt = (image.dataset.method === 'cfg' ? 'CFG only' : 'LyapuFlow') + ' reconstruction at flow time ' + time.toFixed(3);
+        }
+      });
+      guidanceArrows.forEach(function (arrow) {
+        var visibleLength = arrow.length * time;
+        arrow.path.style.strokeDasharray = arrow.length + ' ' + arrow.length;
+        arrow.path.style.strokeDashoffset = arrow.length - visibleLength;
+        arrow.path.style.opacity = time > 0 ? '1' : '0';
+        arrow.head.style.opacity = time > 0 ? '1' : '0';
+        var tip = arrow.path.getPointAtLength(visibleLength);
+        var previous = arrow.path.getPointAtLength(Math.max(0, visibleLength - 2));
+        var angle = Math.atan2(tip.y - previous.y, tip.x - previous.x) * 180 / Math.PI;
+        arrow.head.setAttribute('transform', 'translate(' + tip.x + ' ' + tip.y + ') rotate(' + angle + ')');
+      });
+      endpointBalls.forEach(function (ball) {
+        ball.classList.toggle('is-visible', frameIndex === finalFrameIndex);
+      });
+    }
+    flowTime.value = flowTime.defaultValue;
+    flowTime.addEventListener('input', updateTrajectory);
+    updateTrajectory();
+  }
+
   var navigation = performance.getEntriesByType('navigation')[0];
   if (navigation && navigation.type === 'reload') {
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
