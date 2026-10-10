@@ -191,6 +191,7 @@
     var trajectories = JSON.parse(trajectoryData.textContent);
     var flowTimeValue = document.getElementById('flow-time-value');
     var trajectoryImages = Array.from(document.querySelectorAll('.trajectory-frame'));
+    var splitFigures = Array.from(document.querySelectorAll('.trajectory-split-figure'));
     var endpointBalls = Array.from(document.querySelectorAll('.trajectory-endpoint-ball'));
     var vDistanceLines = Array.from(document.querySelectorAll('.trajectory-v-distance'));
     var imageBase = trajectoryImages[0].getAttribute('src').replace(/[^/]+$/, '');
@@ -205,6 +206,12 @@
       flowTime.style.setProperty('--flow-progress', (time * 100) + '%');
       flowTimeValue.value = time.toFixed(3);
       flowTimeValue.textContent = time.toFixed(3);
+      splitFigures.forEach(function (figure) {
+        var direction = figure.dataset.trajectorySplit === 'left' ? 1 : -1;
+        var image = figure.querySelector('img');
+        var offset = (1 - time) * image.getBoundingClientRect().width / 2 * direction;
+        image.style.setProperty('--trajectory-split-x', offset + 'px');
+      });
       trajectoryImages.forEach(function (image) {
         var frames = trajectories[image.dataset.method];
         var frame = frames[frames.length - 1 - frameIndex];
@@ -234,7 +241,17 @@
     }
     flowTime.value = flowTime.defaultValue;
     flowTime.addEventListener('input', updateTrajectory);
-    updateTrajectory();
+    window.addEventListener('resize', updateTrajectory);
+    window.addEventListener('load', updateTrajectory, { once: true });
+    if ('ResizeObserver' in window) {
+      var trajectoryResizeObserver = new ResizeObserver(updateTrajectory);
+      splitFigures.forEach(function (figure) {
+        trajectoryResizeObserver.observe(figure.querySelector('img'));
+      });
+    }
+    requestAnimationFrame(function () {
+      requestAnimationFrame(updateTrajectory);
+    });
   }
 
   var navigation = performance.getEntriesByType('navigation')[0];

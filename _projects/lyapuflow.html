@@ -60,14 +60,14 @@ category: work
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/bulma.min.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/template.css' | relative_url }}?v=20261010-author-underline-center-animated">
     <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-v-distance-guides">
+    <link rel="stylesheet" href="{{ '/assets/lyapuflow/css/lyapuflow.css' | relative_url }}?v=20261010-split-trajectory-images-8">
     <style>
       .method-figure { position: relative; width: 85%; aspect-ratio: 1880 / 640; margin: 1.7rem auto 0; }
       .method-figure .method-frame { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; opacity: 0; }
       .method-figure .method-frame.is-current { opacity: 1; }
       @media (max-width: 768px) { .method-figure { width: 100%; } }
     </style>
-    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-v-distance-guides"></script>
+    <script defer src="{{ '/assets/lyapuflow/js/lyapuflow.js' | relative_url }}?v=20261010-split-trajectory-images-5"></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -134,10 +134,10 @@ category: work
                   <polygon class="trajectory-arrowhead trajectory-arrowhead-lyapuflow" data-arrow-head="lyapuflow" points="0,0 -18,-8 -14,0 -18,8"/>
                   <image href="{{ '/assets/lyapuflow/images/flow-trajectory-lyapunov.png' | relative_url }}" x="0" y="18" width="1024" height="491"/>
                   <text class="trajectory-v-label" x="722" y="75">V</text>
-                  <path class="trajectory-measurement-link" d="M 210 107 C 335 22 501 20 676 64"/>
+                  <path class="trajectory-measurement-link" d="M 245 107 C 350 22 516 20 676 64"/>
                   <polygon class="trajectory-measurement-head" points="679,65 658,49 660,67"/>
-                  <image href="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/input.jpg' | relative_url }}" x="58" y="66" width="165" height="165"/>
-                  <text class="trajectory-measurement-label" x="140" y="259">Constraint</text>
+                  <image href="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/input.jpg' | relative_url }}" x="93" y="66" width="165" height="165"/>
+                  <text class="trajectory-measurement-label" x="175" y="259">Constraint</text>
                   <line class="trajectory-v-distance" x1="720" y1="344" x2="720" y2="375"/>
                   <line class="trajectory-v-distance" x1="886" y1="213" x2="886" y2="335"/>
                   <circle cx="219" cy="355" r="17" fill="url(#trajectory-blue-ball)"/>
@@ -145,8 +145,8 @@ category: work
                   <circle class="trajectory-endpoint-ball" cx="886" cy="353" r="17" fill="url(#trajectory-pink-ball)"/>
                 </svg>
               </figure>
-              <figure><img class="trajectory-frame" data-method="cfg" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/cfg_01_t0.987381.jpg' | relative_url }}" alt="Uncontrolled reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-cfg" aria-hidden="true"></i>Uncontrolled</figcaption></figure>
-              <figure><img class="trajectory-frame" data-method="lyapuflow" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/lyapuflow_01_t0.963074.jpg' | relative_url }}" alt="LyapuFlow reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-lyapuflow" aria-hidden="true"></i>LyapuFlow (Ours)</figcaption></figure>
+              <figure class="trajectory-split-figure" data-trajectory-split="left"><img class="trajectory-frame" data-method="cfg" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/cfg_01_t0.987381.jpg' | relative_url }}" alt="Uncontrolled reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-cfg" aria-hidden="true"></i>Uncontrolled</figcaption></figure>
+              <figure class="trajectory-split-figure" data-trajectory-split="right"><img class="trajectory-frame" data-method="lyapuflow" src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/lyapuflow_01_t0.963074.jpg' | relative_url }}" alt="LyapuFlow reconstruction at flow time 0.000" width="768" height="768" draggable="false"><figcaption class="trajectory-method-caption"><i class="trajectory-caption-line trajectory-caption-lyapuflow" aria-hidden="true"></i>LyapuFlow (Ours)</figcaption></figure>
               <figure><img src="{{ '/assets/lyapuflow/images/flickr-dog-trajectory/ground_truth.jpg' | relative_url }}" alt="Ground-truth dog image" width="768" height="768" draggable="false"><figcaption>Ground Truth</figcaption></figure>
             </div>
             <script type="application/json" id="trajectory-frames">{"cfg":[{"time":0.0,"src":"cfg_28_t0.000000.jpg"},{"time":0.008929,"src":"cfg_27_t0.008929.jpg"},{"time":0.110906,"src":"cfg_26_t0.110906.jpg"},{"time":0.199827,"src":"cfg_25_t0.199827.jpg"},{"time":0.278049,"src":"cfg_24_t0.278049.jpg"},{"time":0.347393,"src":"cfg_23_t0.347393.jpg"},{"time":0.409289,"src":"cfg_22_t0.409289.jpg"},{"time":0.464876,"src":"cfg_21_t0.464876.jpg"},{"time":0.515072,"src":"cfg_20_t0.515072.jpg"},{"time":0.560625,"src":"cfg_19_t0.560625.jpg"},{"time":0.602151,"src":"cfg_18_t0.602151.jpg"},{"time":0.64016,"src":"cfg_17_t0.640160.jpg"},{"time":0.675082,"src":"cfg_16_t0.675082.jpg"},{"time":0.707279,"src":"cfg_15_t0.707279.jpg"},{"time":0.737056,"src":"cfg_14_t0.737056.jpg"},{"time":0.764677,"src":"cfg_13_t0.764677.jpg"},{"time":0.790368,"src":"cfg_12_t0.790368.jpg"},{"time":0.814325,"src":"cfg_11_t0.814325.jpg"},{"time":0.836717,"src":"cfg_10_t0.836717.jpg"},{"time":0.857692,"src":"cfg_09_t0.857692.jpg"},{"time":0.877382,"src":"cfg_08_t0.877382.jpg"},{"time":0.8959,"src":"cfg_07_t0.895900.jpg"},{"time":0.913349,"src":"cfg_06_t0.913349.jpg"},{"time":0.929818,"src":"cfg_05_t0.929818.jpg"},{"time":0.945388,"src":"cfg_04_t0.945388.jpg"},{"time":0.960129,"src":"cfg_03_t0.960129.jpg"},{"time":0.974108,"src":"cfg_02_t0.974108.jpg"},{"time":0.987381,"src":"cfg_01_t0.987381.jpg"}],"lyapuflow":[{"time":0.0,"src":"lyapuflow_28_t0.000000.jpg"},{"time":0.002994,"src":"lyapuflow_27_t0.002994.jpg"},{"time":0.03992,"src":"lyapuflow_26_t0.039920.jpg"},{"time":0.076846,"src":"lyapuflow_25_t0.076846.jpg"},{"time":0.113772,"src":"lyapuflow_24_t0.113772.jpg"},{"time":0.150699,"src":"lyapuflow_23_t0.150699.jpg"},{"time":0.187625,"src":"lyapuflow_22_t0.187625.jpg"},{"time":0.224551,"src":"lyapuflow_21_t0.224551.jpg"},{"time":0.261477,"src":"lyapuflow_20_t0.261477.jpg"},{"time":0.298403,"src":"lyapuflow_19_t0.298403.jpg"},{"time":0.335329,"src":"lyapuflow_18_t0.335329.jpg"},{"time":0.372255,"src":"lyapuflow_17_t0.372255.jpg"},{"time":0.409182,"src":"lyapuflow_16_t0.409182.jpg"},{"time":0.446108,"src":"lyapuflow_15_t0.446108.jpg"},{"time":0.483034,"src":"lyapuflow_14_t0.483034.jpg"},{"time":0.51996,"src":"lyapuflow_13_t0.519960.jpg"},{"time":0.556886,"src":"lyapuflow_12_t0.556886.jpg"},{"time":0.593812,"src":"lyapuflow_11_t0.593812.jpg"},{"time":0.630739,"src":"lyapuflow_10_t0.630739.jpg"},{"time":0.667665,"src":"lyapuflow_09_t0.667665.jpg"},{"time":0.704591,"src":"lyapuflow_08_t0.704591.jpg"},{"time":0.741517,"src":"lyapuflow_07_t0.741517.jpg"},{"time":0.778443,"src":"lyapuflow_06_t0.778443.jpg"},{"time":0.815369,"src":"lyapuflow_05_t0.815369.jpg"},{"time":0.852295,"src":"lyapuflow_04_t0.852295.jpg"},{"time":0.889222,"src":"lyapuflow_03_t0.889222.jpg"},{"time":0.926148,"src":"lyapuflow_02_t0.926148.jpg"},{"time":0.963074,"src":"lyapuflow_01_t0.963074.jpg"}]}</script>

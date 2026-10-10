@@ -142,6 +142,17 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 .trajectory-grid figure { min-width: 0; margin: 0; }
 .trajectory-grid > .trajectory-diagram-figure { padding-right: .85rem; transform: translateY(-12px); }
 .trajectory-grid > figure:not(.trajectory-diagram-figure) { transform: translateY(4px); }
+.trajectory-grid > figure.trajectory-split-figure { transform: translateY(4px); }
+.trajectory-split-figure > img { position: relative; transform: translateX(var(--trajectory-split-x, 0px)); transition: transform .32s cubic-bezier(.2,.75,.25,1); }
+.trajectory-split-figure[data-trajectory-split="left"] > img { --trajectory-split-x: 50%; }
+.trajectory-split-figure[data-trajectory-split="right"] > img { --trajectory-split-x: -50%; }
+.trajectory-split-figure[data-trajectory-split="left"] { z-index: 1; }
+.trajectory-split-figure[data-trajectory-split="right"] { z-index: 2; }
+.trajectory-split-figure[data-trajectory-split="left"] { --trajectory-accent: #e5485b; }
+.trajectory-split-figure[data-trajectory-split="right"] { --trajectory-accent: #eeb000; }
+.trajectory-split-figure > img { box-sizing: border-box; border: 3px solid var(--trajectory-accent); }
+.trajectory-split-figure .trajectory-method-caption { color: var(--trajectory-accent); }
+.trajectory-split-figure figcaption { transition: opacity .25s ease; }
 .trajectory-grid img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #f4f6f5; }
 .trajectory-diagram { display: block; width: 100%; height: auto; overflow: visible; pointer-events: none; user-select: none; }
 .trajectory-arrow { fill: none; stroke-width: 3.5; stroke-linecap: round; opacity: 0; }
