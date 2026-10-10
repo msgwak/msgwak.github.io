@@ -166,8 +166,8 @@ button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 
 .trajectory-control output { font-variant-numeric: tabular-nums; font-weight: 500; }
 .trajectory-control input[type="range"] { display: block; width: 100%; height: 1.35rem; margin: 0; padding: 0; appearance: none; -webkit-appearance: none; background: transparent; cursor: grab; }
 .trajectory-control input[type="range"]:active { cursor: grabbing; }
-.trajectory-control input[type="range"]::-webkit-slider-runnable-track { height: .35rem; border-radius: 999px; background: linear-gradient(90deg, #9bcac3, #176b70); }
-.trajectory-control input[type="range"]::-moz-range-track { height: .35rem; border-radius: 999px; background: linear-gradient(90deg, #9bcac3, #176b70); }
+.trajectory-control input[type="range"]::-webkit-slider-runnable-track { height: .35rem; border-radius: 999px; background: linear-gradient(to right, var(--primary-color) 0 var(--flow-progress, 0%), #d8dfde var(--flow-progress, 0%) 100%); }
+.trajectory-control input[type="range"]::-moz-range-track { height: .35rem; border-radius: 999px; background: linear-gradient(to right, var(--primary-color) 0 var(--flow-progress, 0%), #d8dfde var(--flow-progress, 0%) 100%); }
 .trajectory-control input[type="range"]::-webkit-slider-thumb { width: 1.1rem; height: 1.1rem; margin-top: -.375rem; appearance: none; -webkit-appearance: none; border: 3px solid #fff; border-radius: 50%; background: var(--primary-color); box-shadow: 0 1px 4px rgba(20, 50, 52, .3); animation: slider-thumb-pulse 2.4s ease-out infinite; transition: transform .2s ease, box-shadow .2s ease; }
 .trajectory-control input[type="range"]::-moz-range-thumb { width: .78rem; height: .78rem; border: 3px solid #fff; border-radius: 50%; background: var(--primary-color); box-shadow: 0 1px 4px rgba(20, 50, 52, .3); animation: slider-thumb-pulse 2.4s ease-out infinite; transition: transform .2s ease, box-shadow .2s ease; }
 .trajectory-control input[type="range"]:hover::-webkit-slider-thumb, .trajectory-control input[type="range"]:focus-visible::-webkit-slider-thumb { transform: scale(1.14); box-shadow: 0 0 0 5px rgba(23, 107, 112, .15); }

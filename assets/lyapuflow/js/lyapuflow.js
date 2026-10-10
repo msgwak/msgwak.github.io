@@ -201,6 +201,7 @@
       var frameIndex = Number(flowTime.value);
       var finalFrameIndex = Number(flowTime.max);
       var time = frameIndex / finalFrameIndex;
+      flowTime.style.setProperty('--flow-progress', (time * 100) + '%');
       flowTimeValue.value = time.toFixed(3);
       flowTimeValue.textContent = time.toFixed(3);
       trajectoryImages.forEach(function (image) {
