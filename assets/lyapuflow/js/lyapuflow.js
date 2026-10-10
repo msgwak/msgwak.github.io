@@ -24,10 +24,10 @@
   var imageLightboxClose = document.querySelector('.image-lightbox-close');
   var heroVideos = document.querySelectorAll('.publication-hero-image, #icon-lightbox video');
   heroVideos.forEach(function (video) {
-    video.defaultPlaybackRate = 0.5;
-    video.playbackRate = 0.5;
+    video.defaultPlaybackRate = 0.6;
+    video.playbackRate = 0.6;
     video.addEventListener('loadedmetadata', function () {
-      video.playbackRate = 0.5;
+      video.playbackRate = 0.6;
     }, { once: true });
   });
   if (imageTrigger && imageLightbox) {
