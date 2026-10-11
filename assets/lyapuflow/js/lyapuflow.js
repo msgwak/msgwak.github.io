@@ -30,6 +30,25 @@
       video.playbackRate = 0.6;
     }, { once: true });
   });
+  var heroVideo = document.querySelector('.publication-hero-image');
+  if (heroVideo) {
+    heroVideo.autoplay = true;
+    heroVideo.loop = true;
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.playsInline = true;
+
+    function startHeroVideo() {
+      if (document.visibilityState === 'hidden' || !heroVideo.paused) return;
+      var playback = heroVideo.play();
+      if (playback && typeof playback.catch === 'function') playback.catch(function () {});
+    }
+
+    startHeroVideo();
+    heroVideo.addEventListener('loadeddata', startHeroVideo);
+    window.addEventListener('pageshow', startHeroVideo);
+    document.addEventListener('visibilitychange', startHeroVideo);
+  }
   if (imageTrigger && imageLightbox) {
     var lightboxImage = imageLightbox.querySelector('video');
     var closingLightbox = false;
