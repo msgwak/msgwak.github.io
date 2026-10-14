@@ -3,7 +3,7 @@
  ******************************************************************************/
 
 body {
-  padding-bottom: 70px;
+  padding-bottom: 120px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
@@ -14,6 +14,41 @@ body {
   h5,
   h6 {
     scroll-margin-top: 66px;
+  }
+}
+
+.floating-social-bar {
+  position: fixed;
+  z-index: 1040;
+  left: 50%;
+  bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  transform: translateX(-50%);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--global-bg-color) 88%, transparent);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(12px);
+
+  a {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--global-text-color);
+    font-size: 1.7rem;
+    transition: color 0.2s ease, background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-theme-color);
+      background-color: var(--global-divider-color);
+      text-decoration: none;
+    }
   }
 }
 
@@ -35,6 +70,46 @@ body.sticky-bottom-footer {
 .profile {
   img {
     width: 100%;
+    border-radius: 50% !important;
+  }
+}
+
+// Keep the homepage typography compact and easy to scan.
+.post article {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--global-text-color) 76%, var(--global-bg-color));
+
+  :where(p, li, em, strong, div, span) {
+    color: inherit;
+  }
+}
+
+.post article > h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--global-text-color);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post article > .news.honors td,
+.post article > .news.services td {
+  font-size: 0.9rem;
+}
+
+.post article .publications {
+  .title {
+    font-size: 1rem;
+  }
+
+  .author,
+  .periodical {
+    font-size: 0.88rem;
+  }
+
+  .author > em {
+    font-weight: 600;
   }
 }
 

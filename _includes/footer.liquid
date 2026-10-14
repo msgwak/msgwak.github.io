@@ -1,3 +1,18 @@
+<nav class="floating-social-bar" aria-label="Contact and social links">
+  {% if site.email %}
+    <a href="mailto:{{ site.email | encode_email }}" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+  {% endif %}
+  {% if site.scholar_userid %}
+    <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+  {% endif %}
+  {% if site.github_username %}
+    <a href="https://github.com/{{ site.github_username }}" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  {% endif %}
+  {% if site.linkedin_username %}
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+  {% endif %}
+</nav>
+
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
     <div class="container mt-0">
