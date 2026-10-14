@@ -49,6 +49,7 @@
           <!-- About -->
           <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
             <a class="nav-link" href="{{ '/' | relative_url }}">
+              <i class="ti ti-user-circle" aria-hidden="true"></i>
               {{- about_title }}
               {% if page.permalink == '/' %}
                 <span class="sr-only">(current)</span>
@@ -108,6 +109,9 @@
                     {%- assign url = p.url -%}
                   {%- endif %}
                   <a class="nav-link" href="{{ url | relative_url }}">
+                    {% if p.permalink == '/publications/' %}
+                      <i class="ti ti-file-text" aria-hidden="true"></i>
+                    {% endif %}
                     {{- p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>

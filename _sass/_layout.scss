@@ -66,6 +66,11 @@ body.sticky-bottom-footer {
   max-width: $max-content-width;
 }
 
+.navbar .nav-link .ti {
+  margin-right: 0.3rem;
+  vertical-align: -0.08em;
+}
+
 // Profile
 .profile {
   img {
